@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="description" content="HTML/CSS implementation of pacman." />
+        <meta name="keywords" content="HTML,CSS,pacman" />
+        <meta name="author" content="Guy Whorley" />
+
+        <!-- Mobile Specific Metas
+         –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Pacman</title>
+        <!-- FONT
+        –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+        <link href="'https://fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css">
+        <link rel="shortcut icon" href="images/Favicon.ico"/>
+        <link rel="stylesheet" href="css/styles.css"/>
+
+        <!-- Scripts
+          –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+        <script src="scripts/jquery-2.2.3.min.js"></script>
+        <script src="scripts/utility.js"></script>
+        <script src="scripts/pacman.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <p class="twelve columns"><h2>Pacman Lives!</h2></p>
+            </div>
+            <div class="row">
+                <div id="gamescreen" class="twelve columns"></div>
+            </div>
+            <div class="row">
+                <h3 id="scr-box" class="twelve columns">Score: 0</h3>
+            </div>
+        </div>
+        <audio id="intro" src="audio/pacman_ringtone.mp3" autoplay></audio>
+        <audio id="chomp" src="audio/coin.wav"></audio>
+        <audio id="end-game" src="audio/pacman_end.wav"></audio>
+    </body>
+</html>

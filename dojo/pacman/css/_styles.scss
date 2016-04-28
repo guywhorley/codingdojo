@@ -1,0 +1,50 @@
+/*
+* file: pacman.scss
+* desc: style for my pacman game, practicing html and css.
+* author: Guy Whorley
+*/
+@import "_normalize";
+@import "_skeleton";
+
+body { background-color: black;
+    border-collapse: collapse;
+}
+.game-row {
+    div {
+        display: inline-block;
+        background-color: black;
+        width: 30px;
+        height: 30px;
+        margin: -3px;
+
+    }
+    div.empty {
+        background-color: black;
+    }
+    div.block {
+        background-color: blue;
+    }
+    div.coin {
+        display:inline-block;
+        background: url('../images/small-dot.png');
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+    div.pacman {
+        width: 30px;
+        height: 30px;
+        background: url('../images/Pacman-left.gif');
+        background-size: cover;
+        background-repeat: none;
+    }
+} //gamerow
+#scr-box {
+    margin-top: 15px;
+}
+h1, h2, h3 {
+    color: white;
+}
+p {
+    font-size: 1.5em;
+    color: blue;
+}
