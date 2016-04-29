@@ -1,0 +1,4 @@
+# ignore the following files in this repo
+
+**/.sass-cache
+**/css/styles.css.map
