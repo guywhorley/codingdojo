@@ -867,7 +867,9 @@ there.
 /* Larger than Desktop HD */
 body {
   background-color: black;
-  border-collapse: collapse; }
+  border-collapse: collapse;
+  width: 800px;
+  height: 700px; }
 
 .game-row div {
   display: inline-block;
