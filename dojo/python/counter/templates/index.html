@@ -1,0 +1,17 @@
+<!DOCTYPE hmtl>
+<html>
+<head>
+    <title>Form Test</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/styles.css')}}">
+    <script type="text/javascript" src="{{ url_for('static',filename='js/base.js')}}"></script>
+</head>
+<body>
+    <h1>Index Page</h1>
+    <h3>Create a User</h3>
+    <form action='/users' method='post'>
+        <label class="name">Name:</label><input type='text' name='name' /><br />
+        <label class="email">Email:</label><input type='email' name='email' /><br />
+        <input type='submit' value='Show User' />
+    </form>
+</body>
+</html>

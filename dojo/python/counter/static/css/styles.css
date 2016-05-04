@@ -1,0 +1,10 @@
+body {
+    font-family: Raleway, sans-serif;
+}
+#wrapper {
+width: 60%;
+margin: 30px auto;
+}
+label { margin: 10px; }
+.email { margin-right: 13px; }
+[type='submit'] { margin: 15px; }
