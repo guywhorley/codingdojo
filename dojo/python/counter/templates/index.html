@@ -1,17 +1,26 @@
 <!DOCTYPE hmtl>
-<html>
+<html lang="en">
 <head>
-    <title>Form Test</title>
+    <!-- standard metatags -->
+    <meta charset="utf-8">
+    <meta name="description" content="Counter with python and flask">
+    <meta name="keywords" content="counter, python, flask">
+    <meta name="author" content="Guy Whorley">
+    <title>Counter</title>
+
     <link rel="stylesheet" href="{{ url_for('static',filename='css/styles.css')}}">
     <script type="text/javascript" src="{{ url_for('static',filename='js/base.js')}}"></script>
 </head>
 <body>
-    <h1>Index Page</h1>
-    <h3>Create a User</h3>
-    <form action='/users' method='post'>
-        <label class="name">Name:</label><input type='text' name='name' /><br />
-        <label class="email">Email:</label><input type='email' name='email' /><br />
-        <input type='submit' value='Show User' />
-    </form>
+    <div id="wrapper">
+        <h1>Hit Count</h1>
+        <h3>{{count}}</h3>
+        <form action="/reset">
+            <input type="submit" name="reset" value="reset"/>
+        </form>
+        <form action="/double">
+            <input type="submit" name="double" value="double"/>
+        </form>
+    </div>
 </body>
 </html>
