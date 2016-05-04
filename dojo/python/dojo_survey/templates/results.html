@@ -6,14 +6,14 @@
     <script type="text/javascript" src="{{ url_for('static',filename='js/base.js')}}"></script>
 </head>
 <body>
-    <div class="wrapper">
-        <h1>Survey Results</h1>
-        <form action="/">
-            <div id="name">{{name}}</div>
-            <div id="location">{{location}}</div>
-            <div id="favlang">{{language}}</div>
-            <div id="comment">{{comments}}</div>
-            <input type="submit" value="Go Back"/>
+    <div class="wrapper-result">
+        <h2>Submitted Info</h2>
+        <label class="name-result">Name: </label><span id="name">{{ name }}</span><br />
+        <label class="loc">Dojo Location: </label><span id="location">{{ location }}</span><br />
+        <label class="lang-result">Favorite Language: </label><span id="favlang">{{ language }}</span><br />
+        <label class="comm-result">Comment: </label><span id="comments">{{ comments }}</span><br/>
+        <form action="/" method="get">
+            <input class="go-btn" type="submit" value="Go Back"/>
         </form>
     </div>
 </body>
