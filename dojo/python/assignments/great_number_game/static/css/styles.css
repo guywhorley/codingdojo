@@ -1,0 +1,17 @@
+body { font-family: Raleway, sans-serif; }
+
+#wrapper {
+    width: 960px;
+    margin: 150px auto;
+}
+h1, h3 { text-align: center; }
+[type=submit] {
+    border-radius: 5px;
+    width: 100px;
+    background-color: white;
+    padding: 3px;
+}
+form {
+    width: 10%;
+    margin: 15px auto;
+}

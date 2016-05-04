@@ -1,0 +1,26 @@
+<!DOCTYPE hmtl>
+<html lang="en">
+<head>
+    <!-- standard metatags -->
+    <meta charset="utf-8">
+    <meta name="description" content="Counter with python and flask">
+    <meta name="keywords" content="counter, python, flask">
+    <meta name="author" content="Guy Whorley">
+    <title>Counter</title>
+
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/styles.css')}}">
+    <script type="text/javascript" src="{{ url_for('static',filename='js/base.js')}}"></script>
+</head>
+<body>
+    <div id="wrapper">
+        <h1>Hit Count</h1>
+        <h3>{{count}}</h3>
+        <form action="/reset">
+            <input type="submit" name="reset" value="reset"/>
+        </form>
+        <form action="/double">
+            <input type="submit" name="double" value="double"/>
+        </form>
+    </div>
+</body>
+</html>
