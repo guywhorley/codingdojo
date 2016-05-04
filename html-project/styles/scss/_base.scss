@@ -1,0 +1,12 @@
+/*
+base css rules
+Guy Whorley
+*/
+/* comment visible in processed css file */
+// comment that IS NOT visible when processed
+//
+/*! This comment will always be visible, even with compression */
+* {
+    font-family: $font-main;
+    color: $black;
+}
