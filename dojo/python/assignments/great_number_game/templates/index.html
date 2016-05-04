@@ -18,7 +18,7 @@
         <p>{{ session['gameText'] }}</p>
         <p>{{ session['message'] }}</p>
         <form action="/processGuess" method="post">
-            <input type="text" width="10" name="guess" />
+            <input type="text" width="10" name="guess" autofocus />
             <input type="submit" name="Submit Guess" value="Guess"/>
         </form>
         <form action="/resetGame" method="post">

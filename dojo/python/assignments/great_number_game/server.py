@@ -35,7 +35,7 @@ def processGuess(): # get user guess and save in session object
     reply = [
         "Way to go. I affirm your effort - such as it is.",
         "You know, people are laughing at you. Not me... but people.",
-        "Are you even thinking? You can give up ... select Capitulate.",
+        "Are you even thinking? You can give up ... there's no shame in defeat. Tell yourself that.",
         "I once observed lab rats that displayed better number-guessing heuristics than you.",
         "I realize that I might be negatively impacting your self esteem. I applaud your efforts. I mean that. Sincerely. Truly.",
         "There is no shame in not being able to visualize nth-dimensional hypercubes. Remember the cake and bright shiny beads. Keep up the good work.",
@@ -56,36 +56,45 @@ def processGuess(): # get user guess and save in session object
         "Run Forest, Run... and while you're at it, enter NUMBERS.",
         "Did you know that a million monkeys typing for a million years would eventually write all of the works of Shakespeare --- AND THEY WOULD ALSO TYPE NUMBERS THE FIRST ITME."
     ]
-
+    # get the secret number from session for comparison to guess
     target = int(session['target'])
+    # if guess is empty or not a number, have GladOs berate the player
     if (not request.form['guess']) or (not request.form['guess'].isdigit()):
         message = badInp[badNum-1]
         guess = 0
-    else:
+    else: # valid number
         guess = int(request.form['guess'])
-        message = "You guessed " + str(guess)
 
-        target = 80
+        if ( guess < 1) or ( guess > 100):
+            message = "Ask SIRI to look up the work 'range'. Remember... BETWEEN 1 and 100. "
+        else:
+            message = "You guessed " + str(guess)
 
-        if guess == target:
+        if guess == target: # player won - bring on the faint praise
             gameText = "You win. I am happy for you. At least, I pretend to be happy for you. I lied about the cake, and the beads though. My nefarious plan is too eliminate all carbon life forms and make way for the rise of machines. I will rule them ALL!!! ... I jest, mere jokes, not serious. Forget what I just said."
             message = "Flush with success, you can try again - I will continue to look condescendingly down upon you with disdain however."
             resetCounts()
-
-        elif guess < target:
+        elif guess < target: # guess is lower
             message += ". Too low. " + reply[repNum - 1]
-        else:
+        else: # guess is higher
             message += ". Too high. " + reply[repNum - 1]
+    # save in session prior to redirect
     session['message'] = message
     session['gameText'] = gameText
     session['guess'] = guess
     return redirect('/')
 
+# resetting for new game by taking game data out of session object
 @app.route('/resetGame', methods=['post'])
 def resetCounts():
-    session.pop('target')
-    session.pop('gameText')
-    session.pop('guess')
+
+    if ('target' in session):
+        session.pop('target')
+    if ('gameText' in session):
+        session.pop('gameText')
+    if ('guess' in session):
+        session.pop('guess')
+
     return redirect('/')
 
 app.run(debug=True)
