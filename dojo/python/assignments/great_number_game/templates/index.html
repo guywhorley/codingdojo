@@ -3,24 +3,29 @@
 <head>
     <!-- standard metatags -->
     <meta charset="utf-8">
-    <meta name="description" content="Counter with python and flask">
-    <meta name="keywords" content="counter, python, flask">
+    <meta name="description" content="Number Guessing Game">
+    <meta name="keywords" content="Guessing Game, python, flask">
     <meta name="author" content="Guy Whorley">
-    <title>Counter</title>
+    <title>Great Number Game</title>
 
+    <link href='https://fonts.googleapis.com/css?family=Share+Tech+Mono' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="{{ url_for('static',filename='css/styles.css')}}">
     <script type="text/javascript" src="{{ url_for('static',filename='js/base.js')}}"></script>
 </head>
 <body>
     <div id="wrapper">
-        <h1>Hit Count</h1>
-        <h3>{{count}}</h3>
-        <form action="/reset">
-            <input type="submit" name="reset" value="reset"/>
+        <h1>Aperature Labs Number Game v2.1</h1>
+        <p>{{ session['gameText'] }}</p>
+        <p>{{ session['message'] }}</p>
+        <form action="/processGuess" method="post">
+            <input type="text" width="10" name="guess" />
+            <input type="submit" name="Submit Guess" value="Guess"/>
         </form>
-        <form action="/double">
-            <input type="submit" name="double" value="double"/>
+        <form action="/resetGame" method="post">
+            <input type="submit" name="playagain" value="Play Again" />
         </form>
+
+
     </div>
 </body>
 </html>
