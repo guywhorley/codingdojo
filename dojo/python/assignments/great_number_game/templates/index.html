@@ -14,7 +14,7 @@
 </head>
 <body>
     <div id="wrapper">
-        <h1>Aperature Labs Number Game v2.1</h1>
+        <h1>Aperture Labs Number Game v2.1</h1>
         <p>{{ session['gameText'] }}</p>
         <p>{{ session['message'] }}</p>
         <form action="/processGuess" method="post">
@@ -24,8 +24,6 @@
         <form action="/resetGame" method="post">
             <input type="submit" name="playagain" value="Play Again" />
         </form>
-
-
     </div>
 </body>
 </html>
