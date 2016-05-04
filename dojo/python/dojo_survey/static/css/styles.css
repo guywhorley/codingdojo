@@ -1,0 +1,10 @@
+body {
+    font-family: Raleway, sans-serif;
+}
+.wrapper {
+
+outline: 1px solid back;
+padding: 10px;
+width: 60%;
+margin: 30px auto;
+}

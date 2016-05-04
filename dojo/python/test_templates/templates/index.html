@@ -1,0 +1,19 @@
+<!DOCTYPE hmtl>
+<html>
+<head>
+    <title>My First Template</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/styles.css')}}">
+</head>
+<body>
+    <h3>My first flask template with embedded python</h3>
+
+    <p>Phrase: {{phrase}}</p>
+
+    <p class='blue'>Times: {{times}}</p>
+
+    {% for x in range(0, times):%}
+        <p>{{phrase}}</p>
+    {% endfor %}
+    <script type="text/javascript" src="{{ url_for('static',filename='js/base.js')}}"></script>
+</body>
+</html>

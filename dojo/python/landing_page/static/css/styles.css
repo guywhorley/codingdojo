@@ -1,0 +1,13 @@
+body {
+    font-family: Raleway, sans-serif;
+    color: black;
+}
+.center { margin: 20px auto; }
+p, form { width: 60%; }
+form { float: right; }
+h2, input.center { width: 150px; }
+.eyes {
+    font-size: 36pt;
+    width: 200px;
+    margin: 10% auto;
+}
