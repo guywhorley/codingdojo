@@ -1,0 +1,14 @@
+h1 {
+    padding: 10px;
+    text-align: center;
+    vertical-align: middle;
+}
+.img-lg {
+    display: block;
+    width: 30%;
+    margin: 10px auto;
+}
+.img-sm {
+    display: inline-block;
+    width: 200px; 
+}

@@ -1,0 +1,34 @@
+<!DOCTYPE hmtl>
+<html lang="en">
+<head>
+    <!-- req'd by bootstrap -->
+    <meta http-equiv="X-UA-Compatable" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.min.css')}}">
+
+    <!-- standard metatags -->
+    <meta charset="utf-8">
+    <meta name="description" content="Ninja Gold Game">
+    <meta name="keywords" content="python, flask">
+    <meta name="author" content="Guy Whorley">
+    <title>No Ninjas Page</title>
+
+    <!-- jQuery and Bootstrap -->
+    <script type="text/javascript" src="{{ url_for('static',filename='js/jquery-2.2.3.min.js')}}"></script>
+    <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script> -->
+    <script type="text/javascript" src="{{ url_for('static',filename='js/bootstrap.min.js')}}"></script>
+    <!-- <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> -->
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/styles.css')}}">
+    <script type="text/javascript" src="{{ url_for('static',filename='js/base.js')}}"></script>
+</head>
+<body>
+    <h1>The Gang of Ninjas</h1>
+
+        <img class="img-sm" alt="leonardo" src="{{ url_for('static',filename='img/leonardo.jpg')}}" />
+        <img class="img-sm" alt="michelangelo" src="{{ url_for('static',filename='img/michelangelo.jpg')}}" />
+        <img class="img-smg" alt="raphael" src="{{ url_for('static',filename='img/raphael.jpg')}}" />
+        <img class="img-sm" alt="donatello" src="{{ url_for('static',filename='img/donatello.jpg')}}" />
+
+</body>
+</html>
