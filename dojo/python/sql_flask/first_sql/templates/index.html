@@ -1,0 +1,30 @@
+<!DOCTYPE hmtl>
+<html lang="en">
+<head>
+    <!-- req'd by bootstrap -->
+    <meta http-equiv="X-UA-Compatable" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.min.css')}}">
+
+    <!-- standard metatags -->
+    <meta charset="utf-8">
+    <meta name="description" content="Ninja Gold Game">
+    <meta name="keywords" content="python, flask">
+    <meta name="author" content="Guy Whorley">
+    <title>My User Page</title>
+
+    <!-- jQuery and Bootstrap -->
+    <script type="text/javascript" src="{{ url_for('static',filename='js/jquery-2.2.3.min.js')}}"></script>
+    <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script> -->
+    <script type="text/javascript" src="{{ url_for('static',filename='js/bootstrap.min.js')}}"></script>
+    <!-- <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> -->
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/styles.css')}}">
+    <script type="text/javascript" src="{{ url_for('static',filename='js/base.js')}}"></script>
+</head>
+<body>
+    <h1>Profile: {{ username }}</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dignissim quis leo vel ultricies. Donec dignissim neque sed metus sagittis, eget accumsan dui suscipit. Sed aliquam, tortor id finibus porta, nulla nibh hendrerit massa, vitae malesuada risus mauris quis dui. Curabitur facilisis dolor magna. Phasellus id justo eu risus facilisis lacinia. In dolor urna, lobortis sit amet interdum tempor, feugiat ut dolor. Pellentesque varius nisl purus, consequat ultricies augue vulputate ac. Aenean tempor lacus elit, eu maximus ex pretium a.        
+    </p>
+</body>
+</html>
