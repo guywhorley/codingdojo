@@ -1,0 +1,34 @@
+body {
+    font-family: sans-serif;
+    padding: 0;
+    margin: 0;
+}
+.h1 { margin-left: 5px; }
+.places {
+    height: 200px;
+    width: 20%;
+    outline: 1px solid black;
+    padding: 20px;
+    margin: 10px;
+    text-align: center;
+}
+.activity-log {
+    margin: 20px 0px 5px 20px;
+    /*height: 20%;*/
+    overflow: auto;
+}
+.messages {
+    margin-left: 20px;
+}
+.win { color: green; }
+.loss { color: red; }
+[type=submit] {
+    margin-top: 60px;
+}
+.center-me {
+    margin-left: 20px;
+}
+.header { margin-left :20px; }
+div:contains("Earned -") {
+    color: red;
+}

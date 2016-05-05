@@ -1,0 +1,46 @@
+<!DOCTYPE hmtl>
+<html lang="en">
+<head>
+    <!-- req'd by bootstrap -->
+    <meta http-equiv="X-UA-Compatable" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.min.css')}}">
+
+    <!-- standard metatags -->
+    <meta charset="utf-8">
+    <meta name="description" content="Ninja Gold Game">
+    <meta name="keywords" content="python, flask">
+    <meta name="author" content="Guy Whorley">
+    <title>Email Validation Examples</title>
+
+    <!-- jQuery and Bootstrap -->
+    <script type="text/javascript" src="{{ url_for('static',filename='js/jquery-2.2.3.min.js')}}"></script>
+    <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script> -->
+    <script type="text/javascript" src="{{ url_for('static',filename='js/bootstrap.min.js')}}"></script>
+    <!-- <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> -->
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/styles.css')}}">
+    <script type="text/javascript" src="{{ url_for('static',filename='js/base.js')}}"></script>
+</head>
+<body>
+        {% with messages =  get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <p>{{message}}</p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <h1>Registration Form</h1>
+        <div class="styleform">
+            <form action="/process" method="POST">
+                <label class="email">Email:</label><input type="text" name="email"><div class="clear"></div>
+                <label class="fn">First Name:</label><input type="text" name="fname"><div class="clear"></div>
+                <label class="ln">Last Name:</label><input type="text" name="lname"><div class="clear"></div>
+                <label class="pw">Password:</label><input type="password" name="pwd"><div class="clear"></div>
+                <label class="cpw">Confirm:</label><input type="password" name="cpwd"><div class="clear"></div>
+                <input class="btn left" type="submit" value="Submit">
+            </form>
+        </div>
+</body>
+</html>
