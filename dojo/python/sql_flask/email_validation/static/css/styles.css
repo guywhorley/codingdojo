@@ -1,0 +1,22 @@
+body {
+    font-family: sans-serif;
+    padding: 0;
+    margin: 0;
+}
+form { margin: 20px 10px; }
+.alert, .success {
+  padding: 5px;
+  height: 100px;
+  margin-top: 20px;
+  margin-left: 10px;
+  color: white;
+  border: 1px solid black;
+  box-shadow: 3px 3px 3px black;
+}
+.success {
+  color: white;
+  border: 1px solid black;
+  box-shadow: 3px 3px 3px black;
+}
+.alert { background-color: red; }
+.success { background-color: green; }
