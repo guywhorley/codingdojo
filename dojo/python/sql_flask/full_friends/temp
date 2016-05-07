@@ -1,0 +1,19 @@
+FLASH MESSAGING
+
+<div class="row">
+  {% with messages = get_flashed_messages() %}
+  {% if messages %}
+  {% for message in messages %}
+  <p id="msg" class="col-md-4 {{ session['view'] }}">{{message}}</p>
+  {% endfor %}
+  {% endif %}
+  {% endwith %}
+</div>
+
+
+
+<!-- {{ all_friends }}
+  <p>ID: {{ all_friends['id'] }}</p>
+  <p>First Name: {{ all_friends['first_name'] }}</p>
+  <p>Last Name: {{ all_friends['last_name'] }}</p>
+  <p>Occupation: {{ all_friends['occupation'] }}</p> -->
