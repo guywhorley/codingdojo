@@ -1,0 +1,62 @@
+<!DOCTYPE hmtl>
+<html lang="en">
+<head>
+    <!-- req'd by bootstrap -->
+    <meta http-equiv="X-UA-Compatable" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.min.css')}}">
+
+    <!-- standard metatags  -->
+    <meta charset="utf-8">
+    <meta name="description" content="Full Friends CRUD">
+    <meta name="keywords" content="python, flask">
+    <meta name="author" content="Guy Whorley">
+    <title>List Friends</title>
+
+    <!-- jQuery and Bootstrap -->
+    <script type="text/javascript" src="{{ url_for('static',filename='js/jquery-2.2.3.min.js')}}"></script>
+    <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script> -->
+    <script type="text/javascript" src="{{ url_for('static',filename='js/bootstrap.min.js')}}"></script>
+    <!-- <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> -->
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/styles.css')}}">
+    <script type="text/javascript" src="{{ url_for('static',filename='js/base.js')}}"></script>
+</head>
+<body>
+
+  {% with messages =  get_flashed_messages() %}
+    {% if messages %}
+    {% for message in messages %}
+    <p class="{{session['view']}}">{{message}}</p>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+    <div class="container-fluid">
+        <div class="row responsive-table">
+          <table class="table table-hover table-striped table-condensed">
+            <caption class="h1">List of Friends</caption>
+            <tr>
+              <th></th>
+              <th>ID</th>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Occupation</th>
+            </tr>
+            {% for friend in all_friends %}
+              <tr>
+                <td>
+                  <a href="/friends/{{ friend['id'] }}/edit">Edit</a> |
+                  <a href="/friends/{{ friend['id'] }}/delete">Delete</a>
+                </td>
+                <td>{{ friend['id'] }}</td>
+                <td>{{ friend['first_name'] }}</td>
+                <td>{{ friend['last_name'] }}</td>
+                <td>{{ friend['occupation'] }}</td>
+              </tr>
+            {% endfor %}
+          </table>
+          <a href="/create"><button class="btn btn-md">Create New Friend</button></a>
+      </div>
+    </div>
+  </body>
+</html>
