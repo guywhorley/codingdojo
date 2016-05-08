@@ -28,7 +28,7 @@
    {% with messages = get_flashed_messages() %}
    {% if messages %}
    {% for message in messages %}
-   <p id="msg" class="col-md-4 {{ session['view'] }}">{{message}}</p>
+   <p id="msg" class="col-md-12 {{ session['view'] }}">{{message}}</p>
    {% endfor %}
    {% endif %}
    {% endwith %}
@@ -40,7 +40,7 @@
    <form action="/processRegister" method="POST" class="styleform">
      <input autofocus type="text" name="fname" placeholder="First Name"><div class="clear"></div>
      <input type="text" name="lname" placeholder="Last Name"><div class="clear"></div>
-     <input type="text" name="emaail" placeholder="Email"><div class="clear"></div>
+     <input type="text" name="email" placeholder="Email"><div class="clear"></div>
      <input type="password" name="password" placeholder="Password"><div class="clear"></div>
      <input type="password" name="cpassword" placeholder="Confirm Password"><div class="clear"></div>
      <input class="btn btn-md" type="submit" value="Register">

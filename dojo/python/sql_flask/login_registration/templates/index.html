@@ -12,7 +12,7 @@
     <meta name="description" content="Edit the friend record.">
     <meta name="keywords" content="python, flask">
     <meta name="author" content="Guy Whorley">
-    <title>Change Friend</title>
+    <title>Registration Info</title>
 
     <!-- jQuery and Bootstrap -->
     <script type="text/javascript" src="{{ url_for('static',filename='js/jquery-2.2.3.min.js')}}"></script>
@@ -23,21 +23,31 @@
     <script type="text/javascript" src="{{ url_for('static',filename='js/base.js')}}"></script>
 </head>
 <body>
- <div class="container-fluid">
-  <div class="row">
-   {% with messages = get_flashed_messages() %}
-   {% if messages %}
-   {% for message in messages %}
-   <p id="msg" class="col-md-4 {{ session['view'] }}">{{message}}</p>
-   {% endfor %}
-   {% endif %}
-   {% endwith %}
+  <div class="container-fluid">
+    <div class="row">
+      {% with messages = get_flashed_messages() %}
+      {% if messages %}
+      {% for message in messages %}
+      <p id="msg" class="col-md-12 {{ session['view'] }}">{{message}}</p>
+      {% endfor %}
+      {% endif %}
+      {% endwith %}
+    </div>
+    <div class="row">
+      <div class="col-md-12 h1">Registration Information</div>
+    </div>
+    <div class="row">
+      <p class="col-md-12">Welcome {{ fname }}. Here is your registration information:</p>
+    </div>
+    <div class="row">
+      <ul>
+        <li><strong>First Name:</strong> {{ fname }}</li>
+        <li><strong>Last Name:</strong> {{ lname }}</li>
+        <li><strong>Email:</strong> {{ email }}</li>
+        <li><strong>Registration Date:</strong> {{ regDate }}</li>
+      </ul>
+      <a href="/logout" class="alt-choice move-left">Logout</a>
+    </div>
   </div>
-  <div class="row">
-   <div class="col-md-12 h1">Index Page</div>
-   <p class="col-md-12">You are Logged in and Registered!</p>
-   <a href="/logout" class="alt-choice">Logout</a>
-  </div>
- </div>
 </body>
 </html>

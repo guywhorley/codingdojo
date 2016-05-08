@@ -23,15 +23,16 @@
     <script type="text/javascript" src="{{ url_for('static',filename='js/base.js')}}"></script>
 </head>
 <body>
-  {% with messages = get_flashed_messages() %}
-  {% if messages %}
-  {% for message in messages %}
-  <p class="{{ session['view'] }}">{{message}}</p>
-  {% endfor %}
-  {% endif %}
-  {% endwith %}
-
-  <div class="container-fluid">
+   <div class="container-fluid">
+     <div class="row">
+       {% with messages = get_flashed_messages() %}
+       {% if messages %}
+       {% for message in messages %}
+       <p class="col-md-12 {{ session['view'] }}">{{message}}</p>
+       {% endfor %}
+       {% endif %}
+       {% endwith %}
+   </div>
    <div class="row">
     <div class="col-md-12 h1">Login</div>
    </div>
