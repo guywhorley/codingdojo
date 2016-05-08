@@ -4,7 +4,6 @@
     <!-- req'd by bootstrap -->
     <meta http-equiv="X-UA-Compatable" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
     <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.min.css')}}">
 
     <!-- standard metatags -->
@@ -16,9 +15,7 @@
 
     <!-- jQuery and Bootstrap -->
     <script type="text/javascript" src="{{ url_for('static',filename='js/jquery-2.2.3.min.js')}}"></script>
-    <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script> -->
     <script type="text/javascript" src="{{ url_for('static',filename='js/bootstrap.min.js')}}"></script>
-    <!-- <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> -->
     <link rel="stylesheet" href="{{ url_for('static',filename='css/styles.css')}}">
     <script type="text/javascript" src="{{ url_for('static',filename='js/base.js')}}"></script>
 </head>
@@ -34,19 +31,29 @@
       {% endwith %}
     </div>
     <div class="row">
-      <div class="col-md-12 h1">Registration Information</div>
+      <div class="alt-choice-set">
+        <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span><a href="/logout" class="alt-choice tac">Log-out</a>
+      </div>
+      <div class="row">
+        <div class="col-xs-2 col-sm-4"></div>
+        <div class="col-xs-10 col-sm-4 tal h1">Account</div>
+        <div class="col-xs-2 col-sm-4"></div>
+      </div>
     </div>
     <div class="row">
-      <p class="col-md-12">Welcome {{ fname }}. Here is your registration information:</p>
+      <div class="col-xs-2 col-sm-4 "></div>
+      <p class="col-xs-8 col-sm-4">Welcome {{ fname }}. Here is your account details:</p>
+      <div class="col-xs-2 col-sm-4"></div>
     </div>
     <div class="row">
-      <ul>
+      <div class="col-xs-2 col-sm-4"></div>
+      <ul class="col-xs-8 col-sm-4">
         <li><strong>First Name:</strong> {{ fname }}</li>
         <li><strong>Last Name:</strong> {{ lname }}</li>
         <li><strong>Email:</strong> {{ email }}</li>
         <li><strong>Registration Date:</strong> {{ regDate }}</li>
       </ul>
-      <a href="/logout" class="alt-choice move-left">Logout</a>
+      <div class="col-xs-2 col-sm-4"></div>
     </div>
   </div>
 </body>

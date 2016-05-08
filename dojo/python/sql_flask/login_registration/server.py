@@ -45,7 +45,7 @@ def processLogin():
     password = request.form['password']
     if not EMAIL_REGEX.match(request.form['email']):
         session['view'] = "alert"
-        flash("I didn't recognize the email format. Try again.")
+        flash("I didn't recognize that email. Try again.")
         return redirect('/login')
 
     user_query = "SELECT * FROM users WHERE email = :email LIMIT 1"
@@ -53,7 +53,7 @@ def processLogin():
     user = mysql.query_db(user_query, query_data)
     if not user: # email was not found - user is null/empty
         session['view'] = "alert"
-        flash("Email not registered!")
+        flash("That email does not exist! Click the register link to sign up.")
     else:
         if bcrypt.check_password_hash(user[0]['password'], password):
             session['user_id'] = user[0]['id']
@@ -73,9 +73,9 @@ def registerNewUser():
     valOK = False;
     session['view'] = "alert"
     if not NAME_REGEX.match(request.form['fname']):
-        flash("First name is too short (must be 2+ letters with no numbers or special characters")
+        flash("First name is too short (must be 2+ letters with no numbers or special characters)")
     elif not NAME_REGEX.match(request.form['lname']):
-        flash("Last name is too short (must be 2+ letters with no numbers or special characters")
+        flash("Last name is too short (must be 2+ letters with no numbers or special characters)")
     elif len(request.form['email']) < 1:
         flash("Email cannnot be empty!")
     elif not EMAIL_REGEX.match(request.form['email']):

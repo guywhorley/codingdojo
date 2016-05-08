@@ -4,49 +4,50 @@
     <!-- req'd by bootstrap -->
     <meta http-equiv="X-UA-Compatable" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
     <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.min.css')}}">
 
     <!-- standard metatags -->
     <meta charset="utf-8">
-    <meta name="description" content="Edit the friend record.">
+    <meta name="description" content="site registration">
     <meta name="keywords" content="python, flask">
     <meta name="author" content="Guy Whorley">
-    <title>Add Friend</title>
+    <title>Register</title>
 
     <!-- jQuery and Bootstrap -->
     <script type="text/javascript" src="{{ url_for('static',filename='js/jquery-2.2.3.min.js')}}"></script>
-    <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script> -->
     <script type="text/javascript" src="{{ url_for('static',filename='js/bootstrap.min.js')}}"></script>
-    <!-- <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> -->
     <link rel="stylesheet" href="{{ url_for('static',filename='css/styles.css')}}">
     <script type="text/javascript" src="{{ url_for('static',filename='js/base.js')}}"></script>
 </head>
 <body>
- <div class="container-fluid">
-  <div class="row">
-   {% with messages = get_flashed_messages() %}
-   {% if messages %}
-   {% for message in messages %}
-   <p id="msg" class="col-md-12 {{ session['view'] }}">{{message}}</p>
-   {% endfor %}
-   {% endif %}
-   {% endwith %}
-  </div>
-  <div class="row">
-   <div class="col-md-12 h1">Registration</div>
-  </div>
-  <div class="row">
-   <form action="/processRegister" method="POST" class="styleform">
-     <input autofocus type="text" name="fname" placeholder="First Name"><div class="clear"></div>
-     <input type="text" name="lname" placeholder="Last Name"><div class="clear"></div>
-     <input type="text" name="email" placeholder="Email"><div class="clear"></div>
-     <input type="password" name="password" placeholder="Password"><div class="clear"></div>
-     <input type="password" name="cpassword" placeholder="Confirm Password"><div class="clear"></div>
-     <input class="btn btn-md" type="submit" value="Register">
-   </form>
-   <a href="/" class="alt-choice">Cancel</a>
-  </div>
+    <div class="container-fluid">
+       <div class="row">
+         {% with messages = get_flashed_messages() %}
+         {% if messages %}
+         {% for message in messages %}
+         <p class="col-xs-12 {{ session['view'] }}">{{message}}</p>
+         {% endfor %}
+         {% endif %}
+         {% endwith %}
+       </div>
+        <div class="row">
+          <div class="alt-choice-set">
+            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span><a href="/" class="alt-choice tac">Cancel</a>
+          </div>
+          <div class="col-xs-2 col-sm-4"></div>
+            <form action="/processRegister" method="POST" class="col-xs-8 col-sm-4">
+              <fieldset>
+                <legend class="h1 tac">Registration</legend>
+                <input autofocus type="text" name="fname" placeholder="First Name"><div class="clear"></div>
+                <input type="text" name="lname" placeholder="Last Name"><div class="clear"></div>
+                <input type="text" name="email" placeholder="Email"><div class="clear"></div>
+                <input type="password" name="password" placeholder="Password"><div class="clear"></div>
+                <input type="password" name="cpassword" placeholder="Confirm Password"><div class="clear"></div>
+                <input class="btn btn-md btn-primary" type="submit" value="Register">
+              </fieldset>
+            </form>
+          </div>
+        <div class="col-xs-2 col-sm-4"></div>
     </div>
   </body>
 </html>
