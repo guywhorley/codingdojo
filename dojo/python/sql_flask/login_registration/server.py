@@ -14,7 +14,7 @@ PASSWORD_REGEDX = re.compile('^[a-zA-Z0-9].{7,45}$') # must be 8 or more charact
 EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9\.\+_-]+@[a-zA-Z0-9\._-]+\.[a-zA-Z]*$')
 
 # Registration Information Landing Page; you only see this if are have
-# registerd and logged in succesfully. User_ID will have already been inserted into session.
+# registered and logged in succesfully. User_ID will have already been inserted into session.
 @app.route('/')
 def index():
     if not 'user_id' in session:
@@ -79,7 +79,7 @@ def registerNewUser():
     elif len(request.form['email']) < 1:
         flash("Email cannnot be empty!")
     elif not EMAIL_REGEX.match(request.form['email']):
-        flash("Invalid email format. Please use correct email address.!")
+        flash("Invalid email format. Please use correct email address!")
     elif len(request.form['password']) < 8:
         flash("Password must be at least 8 characters!")
     elif (request.form['password'] != request.form['cpassword']):
