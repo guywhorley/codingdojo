@@ -9,10 +9,15 @@ form { margin: 20px 10px; }
   text-align: center;
   color: white;
 }
+input {
+  height: 30px;
+  margin: 5px 15px;
+  padding: 10px 5px;
+}
 .alert { background-color: red; }
 .success { background-color: green; }
 a { font-size: .8em; }
-.cancel-edit { margin-left: 25px; }
+.alt-choice { margin-left: 25px; }
 .form-label {
   margin-left: 15px;
   width: 100px;
@@ -22,8 +27,11 @@ table tr td:nth-child(1) { width: 110px; }
 table { padding: 5px; }
 td, th { text-align: center; }
 .btn-sm, .btn-md {
-  margin: 15px;
-  font-size: 12pt;
+  vertical-align: center;
+  height: 30px;
+  padding: 5px;
+  /*margin: 10px;*/
+  font-size: 10pt;
 }
 .btn-sm { width: 100px; }
 .btn-md { width: 175px; }

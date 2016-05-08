@@ -23,28 +23,30 @@
     <script type="text/javascript" src="{{ url_for('static',filename='js/base.js')}}"></script>
 </head>
 <body>
-      <div class="container-fluid">
-        <div class="row">
-          {% with messages = get_flashed_messages() %}
-          {% if messages %}
-          {% for message in messages %}
-          <p id="msg" class="col-md-4 {{ session['view'] }}">{{message}}</p>
-          {% endfor %}
-          {% endif %}
-          {% endwith %}
-        </div>
-        <div class="row">
-          <div class="col-md-8 h1">Create-A-Friend</div>
-        </div>
-        <div class="row">
-          <form action="/friends" method="POST" class="styleform">
-            <label class="fn form-label">First Name:</label><input autofocus type="text" name="fname" placeholder="John"><div class="clear"></div>
-            <label class="ln form-label">Last Name:</label><input type="text" name="lname" placeholder="Doe"><div class="clear"></div>
-            <label class="pw form-label">Occupation:</label><input type="text" name="occ" placeholder="Brain Surgin"><div class="clear"></div>
-            <input class="btn btn-md" type="submit" value="Save">
-          </form>
-          <a href="/" class="cancel-edit">Cancel</a>
-        </div>
+ <div class="container-fluid">
+  <div class="row">
+   {% with messages = get_flashed_messages() %}
+   {% if messages %}
+   {% for message in messages %}
+   <p id="msg" class="col-md-4 {{ session['view'] }}">{{message}}</p>
+   {% endfor %}
+   {% endif %}
+   {% endwith %}
+  </div>
+  <div class="row">
+   <div class="col-md-12 h1">Registration</div>
+  </div>
+  <div class="row">
+   <form action="/processRegister" method="POST" class="styleform">
+     <input autofocus type="text" name="fname" placeholder="First Name"><div class="clear"></div>
+     <input type="text" name="lname" placeholder="Last Name"><div class="clear"></div>
+     <input type="text" name="emaail" placeholder="Email"><div class="clear"></div>
+     <input type="password" name="password" placeholder="Password"><div class="clear"></div>
+     <input type="password" name="cpassword" placeholder="Confirm Password"><div class="clear"></div>
+     <input class="btn btn-md" type="submit" value="Register">
+   </form>
+   <a href="/" class="alt-choice">Cancel</a>
+  </div>
     </div>
   </body>
 </html>
