@@ -1,0 +1,50 @@
+<!DOCTYPE hmtl>
+<html lang="en">
+<head>
+    <!-- req'd by bootstrap -->
+    <meta http-equiv="X-UA-Compatable" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.min.css')}}">
+
+    <!-- standard metatags  -->
+    <meta charset="utf-8">
+    <meta name="description" content="Wall Project">
+    <meta name="keywords" content="python, flask">
+    <meta name="author" content="Guy Whorley">
+    <title>Wall Login</title>
+
+    <!-- jQuery and Bootstrap -->
+    <script type="text/javascript" src="{{ url_for('static',filename='js/jquery-2.2.3.min.js')}}"></script>
+    <script type="text/javascript" src="{{ url_for('static',filename='js/bootstrap.min.js')}}"></script>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/styles.css')}}">
+    <script type="text/javascript" src="{{ url_for('static',filename='js/base.js')}}"></script>
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      {% with messages = get_flashed_messages() %}
+      {% if messages %}
+      {% for message in messages %}
+      <p class="col-sm-12 {{ session['view'] }}">{{message}}</p>
+      {% endfor %}
+      {% endif %}
+      {% endwith %}
+    </div>
+    <div class="row">
+      <div class="alt-choice-set">
+        <span class="glyphicon glyphicon-user" aria-hidden="true"></span><a href="/register" class="alt-choice tac">Sign-Up</a>
+      </div>
+      <div class="col-xs-2 col-sm-4"></div>
+      <form action="/processLogin" method="POST" class="col-xs-8 col-sm-4">
+        <fieldset>
+          <legend class="h1 tac">Login @TheWall</legend>
+          <input autofocus type="text" name="email" placeholder="Email">
+          <input type="password" name="password" placeholder="Password">
+          <input class="btn btn-md btn-primary" type="submit" value="Login">
+        </fieldset>
+      </form>
+      <div class="col-xs-2 col-sm-4"></div>
+    </div>
+  </div>
+</body>
+</html>

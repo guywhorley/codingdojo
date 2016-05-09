@@ -1,0 +1,65 @@
+<!DOCTYPE hmtl>
+<html lang="en">
+<head>
+    <!-- req'd by bootstrap -->
+    <meta http-equiv="X-UA-Compatable" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.min.css')}}">
+
+    <!-- standard metatags -->
+    <meta charset="utf-8">
+    <meta name="description" content="Edit the friend record.">
+    <meta name="keywords" content="python, flask">
+    <meta name="author" content="Guy Whorley">
+    <title>@TheWall</title>
+
+    <!-- jQuery and Bootstrap -->
+    <script type="text/javascript" src="{{ url_for('static',filename='js/jquery-2.2.3.min.js')}}"></script>
+    <script type="text/javascript" src="{{ url_for('static',filename='js/bootstrap.min.js')}}"></script>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/styles.css')}}">
+    <script type="text/javascript" src="{{ url_for('static',filename='js/base.js')}}"></script>
+</head>
+<body>
+  <div class="container-fluid">
+
+    <div id="header" class="row">
+    	<div class="col-xs-8 h1">{{ fname }} @theWall</div>
+			<div class="alt-choice-set col-xs-4">
+				<!-- <div clas="col-xs-4 log-out"> -->
+				<span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
+				<a href="/logout" class="alt-choice tac">Log-out</a>
+			</div>
+	  </div>
+
+		<div class="row">
+			 {% with messages = get_flashed_messages() %}
+			 {% if messages %}
+			 {% for message in messages %}
+			 <p class="col-md-12 {{ session['view'] }}">{{message}}</p>
+			 {% endfor %}
+			 {% endif %}
+			 {% endwith %}
+		 </div>
+
+		<div class="row">
+			<div class="col-xs-1"></div>
+			<form action="/postMessage" method="post" class="col-xs-10">
+				<p class="col-xs-12">Post Your Message</p>
+				<textarea name="content" class="col-xs-12 post-it" rows="5"></textarea>
+				<div class="col-xs-1"></div>
+				<div class="col-xs-1"></div>
+				<div class="col-xs-10">
+					<input class="btn btn-md btn-primary" type="submit" name="submit" value="Save " />
+				</div>
+				<div class="col-xs-1"></div>
+			</form>
+    </div>
+		<!--
+			  <li><strong>First Name:</strong> {{ fname }}</li>
+        <li><strong>Last Name:</strong> {{ lname }}</li>
+        <li><strong>Email:</strong> {{ email }}</li>
+        <li><strong>Registration Date:</strong> {{ regDate }}</li>
+     -->
+	</div>
+</body>
+</html>
