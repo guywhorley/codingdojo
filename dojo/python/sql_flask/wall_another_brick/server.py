@@ -44,12 +44,12 @@ def showTheWall():
 		lastUpd = user[0]['updated_at']
 
 		# build the wall with messages and comments
-		query = "SELECT users.id, users.first_name, users.last_name, messages.message, messages.created_at FROM messages JOIN users ON messages.user_id = users.id ORDER BY messages.created_at DESC"
+		query = "SELECT messages.user_id, users.first_name, users.last_name, messages.message, 		 DATE_FORMAT(messages.created_at,'%a, %b %D %Y @%T') AS created_at, messages.id FROM messages JOIN users ON messages.user_id = users.id ORDER BY messages.created_at DESC"
 		messages = mysql.query_db(query)
-		for msg in messages:
-			print "{} {} wrote on {}: {}".format(msg['first_name'], msg['last_name'], msg['created_at'], msg['message'])
+		# for msg in messages:
+			# print "[id:{}] {} {}, at {}: [id:{}] {}".format(msg['user_id'], msg['first_name'], msg['last_name'], msg['created_at'], msg['id'], msg['message'])
 
-	return render_template('/wall.html', fname=fname, lname=lname, email=email, regDate = regDate, lastUpd = lastUpd, msgs = query)
+	return render_template('/wall.html', fname=fname, lname=lname, email=email, regDate = regDate, lastUpd = lastUpd, posts = messages)
 #
 # Write message to DB
 @app.route('/postMessage', methods=['POST'])
@@ -61,8 +61,8 @@ def postMessage():
 		query = "INSERT INTO messages (message, created_at, updated_at, user_id) VALUES (:msg, NOW(), NOW(), :u_id)"
 		data = { 'msg': request.form['content'], 'u_id' : session['user_id'] }
 		mysql.query_db(query, data)
-		session['view'] = "success"
-		flash("You posted okay!")
+		# session['view'] = "success"
+		# flash("You posted okay!")
 	return redirect('/theWall')
 
 # Spawn the login page.
@@ -106,11 +106,12 @@ def register():
 @app.route('/processRegister', methods=['POST'])
 def registerNewUser():
 	valOK = False;
+	alertMsg = "(must be 2+ letters, no numbers, no specials characters)"
 	session['view'] = "alert"
 	if not NAME_REGEX.match(request.form['fname']):
-		flash("First name is too short (must be 2+ letters with no numbers or special characters)")
+		flash("First name is too short " + alertMsg)
 	elif not NAME_REGEX.match(request.form['lname']):
-		flash("Last name is too short (must be 2+ letters with no numbers or special characters)")
+		flash("Last name is too short " + alertMsg)
 	elif len(request.form['email']) < 1:
 		flash("Email cannnot be empty!")
 	elif not EMAIL_REGEX.match(request.form['email']):

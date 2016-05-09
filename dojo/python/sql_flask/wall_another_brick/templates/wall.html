@@ -23,7 +23,7 @@
   <div class="container-fluid">
 
     <div id="header" class="row">
-    	<div class="col-xs-8 h1">{{ fname }} @theWall</div>
+    	<div class="col-xs-8 h1">@theWall</div>
 			<div class="alt-choice-set col-xs-4">
 				<!-- <div clas="col-xs-4 log-out"> -->
 				<span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
@@ -44,7 +44,7 @@
 		<div class="row">
 			<div class="col-xs-1"></div>
 			<form action="/postMessage" method="post" class="col-xs-10">
-				<p class="col-xs-12">Post Your Message</p>
+				<p class="col-xs-12">Hello {{ fname }}, post your message:</p>
 				<textarea name="content" class="col-xs-12 post-it" rows="5"></textarea>
 				<div class="col-xs-1"></div>
 				<div class="col-xs-1"></div>
@@ -54,12 +54,23 @@
 				<div class="col-xs-1"></div>
 			</form>
     </div>
-		<!--
-			  <li><strong>First Name:</strong> {{ fname }}</li>
-        <li><strong>Last Name:</strong> {{ lname }}</li>
-        <li><strong>Email:</strong> {{ email }}</li>
-        <li><strong>Registration Date:</strong> {{ regDate }}</li>
-     -->
 	</div>
+	<div class="container-fluid postings">
+			{% if posts %}
+			{% for post in posts %}
+				<div class="row posting">
+					<div class="col-xs-1"></div>
+					<div class="col-xs-10">
+						<span class="post-title">
+							<span class="post-user">{{ post['first_name']}} {{post['last_name']}} </span>
+							wrote on <span class="post-date">{{post['created_at']}}</span>:
+							<span class="post-message"><q>{{post['message']}}</q></span>
+						</span>
+					</div>
+					<div class="col-xs-1"></div>
+				</div>
+			{% endfor %}
+			{% endif %}
+		</div>
 </body>
 </html>

@@ -365,6 +365,9 @@ textarea {
   font: inherit;
   /* 2 */ }
 
+/* CSS rules for 'theWall' project. SASS-enabled.
+ * Author: Guy Whorley
+ */
 /* Core css rules for my projects. SASS-enabled.
  * Author: Guy Whorley
  * This requires the partial: '-variables.scss'.
@@ -388,7 +391,7 @@ textarea {
 .tal {
   text-align: left; }
 
-.font-sm, a, .alt-choice-set .glyphicon {
+.font-sm, a, .alt-choice-set .glyphicon, .posting, .posting .post-message {
   font-size: 1.2rem; }
 
 .font-md, .btn-sm, .btn-md {
@@ -507,10 +510,8 @@ a {
 ul li {
   list-style-type: none; }
 
-/* CSS rules for 'theWall' project. SASS-enabled.
- * Author: Guy Whorley
- */
 #header {
+  outline: 1px solid red;
   vertical-align: center;
   text-align: left;
   height: 10%;
@@ -533,5 +534,22 @@ form {
   form textarea {
     border-radius: 7px;
     border: 3px solid darkgray; }
+  form textarea:focus {
+    outline: none !important; }
+
+.postings {
+  height: 40%;
+  overflow-x: hidden;
+  overflow-y: scroll; }
+
+.posting {
+  padding: 5px;
+  margin: 20px 20px; }
+  .posting .post-user {
+    font-weight: 800; }
+  .posting .post-date {
+    font-style: italic; }
+  .posting .post-message {
+    padding-left: 5px; }
 
 /*# sourceMappingURL=styles.css.map */

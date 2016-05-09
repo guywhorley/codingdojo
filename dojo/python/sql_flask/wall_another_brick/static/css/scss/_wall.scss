@@ -1,8 +1,10 @@
 /* CSS rules for 'theWall' project. SASS-enabled.
  * Author: Guy Whorley
  */
+@import '_base.scss';
 
 #header {
+		outline: 1px solid red;
 	  vertical-align: center;
     text-align: left;
     height: 10%;
@@ -25,5 +27,26 @@ form {
 	textarea {
 		border-radius: 7px;
 		border: 3px solid $dgray;
+		}
+	textarea:focus { outline: none !important; }
+}
+
+.postings {
+	// outline: 1px solid red;
+	height: 40%;
+	overflow-x: hidden;
+	overflow-y: scroll;
+}
+
+.posting {
+	padding: 5px;
+	margin: 20px 20px;
+	@extend .font-sm;
+	.post-user { font-weight: 800; }
+	.post-date { font-style: italic; }
+
+	.post-message {
+ 		@extend .font-sm;
+		padding-left: 5px;
 	}
 }
