@@ -3,7 +3,7 @@
 // 		# query = query + " VALUES('" + fname + "','" + lname + "','" + email + "','" + pw_hash + "', NOW(), NOW())"
 // 		# user = mysql.query_db(query)
 // # save mode
-// 
+//
 							// <!-- NEED TO WORK ON THIS...
 							// {% for i in range(0,length(comments))	%}
 							// {% if comments[i]['id'] == post['id'] %}
@@ -15,3 +15,11 @@
 							// {% endfor %}
 							// {% endif %}
 							// {% endfor %} -->
+							//
+							//
+							//
+							// {% for key,value in c_dict.iteritems() %}
+							// 	{% if c_dict['id'] == post['id'] %}
+							// 		<p class="post-comment">"{{key}}"= {{value}}</p>
+							// 	{% endif %}
+							// {% endfor %}

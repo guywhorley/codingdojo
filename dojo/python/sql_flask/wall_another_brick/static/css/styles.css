@@ -522,6 +522,12 @@ ul li {
     margin-left: 20px;
     margin-top: 10px; }
 
+hr.wall-seperator {
+  margin-top: 30px;
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(to right, transparent, rgba(0, 0, 0, 0.75), transparent); }
+
 form {
   box-sizing: border-box;
   margin-top: 1em;
@@ -547,7 +553,7 @@ form {
 
 .posting {
   padding: 5px;
-  margin: 20px 20px; }
+  margin: 10px 20px; }
   .posting .post-user {
     font-weight: 800; }
   .posting .post-date {
@@ -560,5 +566,11 @@ form {
     margin-left: 5px; }
   .posting .post-message {
     padding-left: 5px; }
+  .posting .comment-indent {
+    margin-top: 5px;
+    margin-left: 30px; }
+  .posting .post-comment {
+    color: darkgray;
+    margin-left: 30px; }
 
 /*# sourceMappingURL=styles.css.map */

@@ -23,7 +23,7 @@
   <div class="container-fluid">
 
     <div id="header" class="row">
-    	<div class="col-xs-8 h1">@theWall</div>
+    	<div class="col-xs-8 h1">{{fname}}.{{lname}}@theWall</div>
 			<div class="col-xs-2"></div>
 	  </div>
 
@@ -61,26 +61,35 @@
 				<div class="col-xs-1"></div>
 
 			</form>
-    </div>
+		</div>
+		<div class="row">
+			<div class="col-xs-1"></div>
+			<hr class="col-xs-10 wall-seperator" /></div>
+			<div class="col-xs-1"></div>
 	</div>
 	<div class="container-fluid postings">
 			{% if posts %}
 			{% for post in posts %}
-				<div class="row posting">
-					<div class="col-xs-1"></div>
+			<div class="row posting">
+				<div class="col-xs-1"></div>
 					<div class="col-xs-10">
 						<span class="post-title">
 							<span class="post-user">{{ post['first_name']}} {{post['last_name']}} </span>
 							wrote on <span class="post-date">{{post['created_at']}}</span>:
 							<span class="post-message"><q>{{post['message']}}</q></span> <a href="/comment/{{post['id']}}/{{post['user_id']}}">(+comment)</a></span>
-							{% if comments %}
-							{% for c_dict in comments %}
-								{% for key,value in c_dict.iteritems() %}
-										<p>
-											{{key}}:{{value}}
-										</p>
+							{% if comments %} <!-- comments exist -->
+								{% for c_dict in comments %} <!-- iter thru each post-comment dict -->
+									{% if c_dict['id'] == post['id'] %} <!-- if postID in dict == this postID -->
+											<!-- <p class="post-comment">"{{ c_dict['id']}}"={{c_dict['comments']}}</p> -->
+											{% for c in c_dict['comments'] %}
+												<div class="comment-indent">
+													<span class="post-user">- {{c['u.fname']}} {{c['u.lname']}} </span>
+													wrote on <span class="post-date">{{c['created_at']}}</span>:
+													<span><q>{{c['comment']}}</q></span>
+												</div>
+											{% endfor %}
+									{% endif %}
 								{% endfor %}
-							{% endfor %}
 							{% endif %}
 					</div>
 					<div class="col-xs-1"></div>

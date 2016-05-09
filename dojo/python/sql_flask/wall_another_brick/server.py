@@ -20,7 +20,7 @@ def index():
 	if not 'user_id' in session:
 		return redirect('/login')
 	else: # grab user information to populate home page
-		user = getUserInfo(session['user_id'])
+		user = getUserInfo(session['session_id'])
 		fname = user[0]['first_name']
 		lname = user[0]['last_name']
 		email = user[0]['email']
@@ -29,35 +29,40 @@ def index():
 	return redirect('/theWall')
 
 # Add comment to a postMessage
-@app.route('/comment/<id>/<user_id>')
-def commentOnPost(id, user_id):
-	if not 'user_id' in session:
+@app.route('/comment/<id>/<orig_author_id>')
+def commentOnPost(id, orig_author_id):
+	if not 'session_id' in session:
 		session['view'] = "alert"
 		flash("There's a problem! I didn't recognize your id.")
 		return redirect('/login')
 	else:
+		# get currently logged-in user
+		user = getUserInfo(session['session_id'])
+		fname = user[0]['first_name']
+		lname = user[0]['last_name']
+
 		# Get original message and place text on top...
 		query = "SELECT messages.user_id,users.first_name, users.last_name, messages.message, DATE_FORMAT(messages.created_at,'%a, %b %D %Y @%T') AS created_at, messages.id FROM messages JOIN users ON messages.user_id = users.id WHERE messages.id = :id ORDER BY messages.created_at DESC LIMIT 1"
-		data = { 'id': id }
+		data = { 'id':  id }
 		post = mysql.query_db(query, data)
 
-		fname = post[0]['first_name']
-		lname = post[0]['last_name']
-		cat = post[0]['created_at']
-		msg = post[0]['message']
-		msg_id =id
+		post_fname = post[0]['first_name']
+		post_lname = post[0]['last_name']
+		post_cat = post[0]['created_at']
+		post_msg = post[0]['message']
+		post_msg_id =id
 
-	return render_template('/comment.html', commentor_id = user_id, msg_id = id, fname = fname, lname = lname, cat = cat, post = msg, messages = [])
+	return render_template('/comment.html', fname = fname,  lname = lname, commentor_id = session['session_id'], post_msg_id = post_msg_id, post_fname = post_fname, post_lname = post_lname, post_cat = post_cat, post = post_msg, messages = [])
 
 # Show user wall with messages
 @app.route('/theWall', methods=['POST','GET'])
 def showTheWall():
-	if not 'user_id' in session:
+	if not 'session_id' in session:
 		session['view'] = "alert"
 		flash("There's a problem! I didn't recognize your id.")
 		return redirect('/login')
 	else:
-		user = getUserInfo(session['user_id'])
+		user = getUserInfo(session['session_id'])
 		fname = user[0]['first_name']
 		lname = user[0]['last_name']
 		email = user[0]['email']
@@ -80,7 +85,8 @@ def showTheWall():
 		#
 		all_comments = []
 		for message in messages:
-			cm_query = "SELECT u.first_name, u.last_name, c.comment, date_format(c.created_at,'%a, %b %d %Y %T') AS created_at from comments AS c join users AS u on c.user_id = u.id where c.message_id = :id ORDER BY c.created_at DESC"
+			# cm_query = "SELECT u.first_name, u.last_name, c.comment, date_format(c.created_at,'%a, %b %d %Y %T') AS created_at from comments AS c join users AS u on c.user_id = u.id where c.message_id = :id ORDER BY c.created_at DESC"
+			cm_query = "SELECT u2.first_name, u2.last_name, c.comment, date_format(c.created_at,'%a, %b %d %Y %T') AS created_at from comments AS c join users AS u on c.user_id = u.id join users AS u2 on c.user_id = u2.id where c.message_id = :id ORDER BY c.created_at DESC"
 			cm_data = { 'id': message['id'] }
 			# select all comments related to messages and build master collection
 			temp = mysql.query_db(cm_query, cm_data)
@@ -98,11 +104,11 @@ def showTheWall():
 					# bundle all post comments into one array
 					comArr.append(buildIt)
 				postD = {} # create a temp dictionary
-				postD[str(message['id'])] = comArr
-				#postD['id'] = message['id'] # associate key 'id' to actual id value
-				#postD['comments'] = comArr # assocaite key 'comments' to array
+				# postD[str(message['id'])] = comArr
+				postD['id'] = message['id'] # associate key 'id' to actual id value
+				postD['comments'] = comArr # assocaite key 'comments' to array
 				all_comments.append(postD) # store the temp d in the all_commments array
-		print all_comments
+		#print all_comments
 
 	return render_template('/wall.html', fname=fname, lname=lname, email=email, regDate = regDate, lastUpd = lastUpd, posts = messages, comments = all_comments)
 #
@@ -114,7 +120,7 @@ def postMessage():
 		flash("FYI: You didn't include any text in your post so I didn't save it.")
 	else:
 		query = "INSERT INTO messages (message, created_at, updated_at, user_id) VALUES (:msg, NOW(), NOW(), :u_id)"
-		data = { 'msg': request.form['content'], 'u_id' : session['user_id'] }
+		data = { 'msg': request.form['content'], 'u_id' : session['session_id'] }
 		mysql.query_db(query, data)
 	return redirect('/theWall')
 
@@ -128,7 +134,7 @@ def submitComment():
 		query = "INSERT INTO comments (comment, created_at, updated_at, user_id, message_id) VALUES (:comment, NOW(), NOW(), :u_id, :m_id)"
 		data = {
 			'comment': request.form['comment'],
-			'u_id': request.form['user_id'],
+			'u_id': session['session_id'],  #request.form['user_id'], #USE CURRENTLY LOGGED-IN USER
 			'm_id': request.form['message_id']
 		}
 		mysql.query_db(query, data)
@@ -156,10 +162,10 @@ def processLogin():
 	user = mysql.query_db(user_query, query_data)
 	if not user: # email was not found - user is null/empty
 		session['view'] = "alert"
-		flash("That email does not exist! Sign-up now for a free account @TheWall.")
+		flash("That email does not exist! Sign-up now for a free account @theWall.")
 	else:
 		if bcrypt.check_password_hash(user[0]['password'], password):
-			session['user_id'] = user[0]['id']
+			session['session_id'] = user[0]['id']
 			return redirect('/theWall')
 		else:
 			session['view'] = "alert"
@@ -212,7 +218,7 @@ def registerNewUser():
 
 		session['view'] = "success"
 		flash("{} {}, You have sucessfully registered!".format(fname, lname))
-		session['user_id'] = getID(email)
+		session['session_id'] = getID(email)
 		return redirect('/theWall') # Go to landing page and show registration info.
 
 	return redirect('/register') # failed to add user for any number of reasons.
@@ -221,13 +227,13 @@ def registerNewUser():
 def logout():
   	#remove user_id from session
 	if 'user_id' in session:
-		del session['user_id']
+		del session['session_id']
   	return redirect('/')
 
 # Return user data for given ID
 def getUserInfo(id):
 	try:
-		id = session['user_id']
+		id = session['session_id']
 		user_query = "SELECT * FROM users WHERE ID = :id LIMIT 1"
 		query_data = { 'id': id }
 		my_user = mysql.query_db(user_query, query_data)
