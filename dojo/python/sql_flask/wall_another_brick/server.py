@@ -47,7 +47,7 @@ def commentOnPost(id, user_id):
 		msg = post[0]['message']
 		msg_id =id
 
-	return render_template('/comment.html', commentor_id = user_id, msg_id = id, fname = fname, lname = lname, cat = cat, post = msg, messages = []) # fname=fname, lname=lname, email=email, regDate = regDate, lastUpd = lastUpd, messages=[])
+	return render_template('/comment.html', commentor_id = user_id, msg_id = id, fname = fname, lname = lname, cat = cat, post = msg, messages = [])
 
 # Show user wall with messages
 @app.route('/theWall', methods=['POST','GET'])
