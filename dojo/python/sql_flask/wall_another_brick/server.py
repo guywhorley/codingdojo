@@ -97,12 +97,12 @@ def showTheWall():
 					}
 					# bundle all post comments into one array
 					comArr.append(buildIt)
-
 				postD = {} # create a temp dictionary
-				postD['id'] = message['id'] # associate key 'id' to actual id value
-				postD['comments'] = comArr # assocaite key 'comments' to array
+				postD[str(message['id'])] = comArr
+				#postD['id'] = message['id'] # associate key 'id' to actual id value
+				#postD['comments'] = comArr # assocaite key 'comments' to array
 				all_comments.append(postD) # store the temp d in the all_commments array
-		#print all_comments
+		print all_comments
 
 	return render_template('/wall.html', fname=fname, lname=lname, email=email, regDate = regDate, lastUpd = lastUpd, posts = messages, comments = all_comments)
 #

@@ -11,7 +11,7 @@
     <meta name="description" content="Edit the friend record.">
     <meta name="keywords" content="python, flask">
     <meta name="author" content="Guy Whorley">
-    <title>@TheWall</title>
+    <title>@theWall</title>
 
     <!-- jQuery and Bootstrap -->
     <script type="text/javascript" src="{{ url_for('static',filename='js/jquery-2.2.3.min.js')}}"></script>
@@ -73,15 +73,15 @@
 							<span class="post-user">{{ post['first_name']}} {{post['last_name']}} </span>
 							wrote on <span class="post-date">{{post['created_at']}}</span>:
 							<span class="post-message"><q>{{post['message']}}</q></span> <a href="/comment/{{post['id']}}/{{post['user_id']}}">(+comment)</a></span>
-							<!-- iter thru comments  -->
-
-
-
-
-
-
-
-							
+							{% if comments %}
+							{% for c_dict in comments %}
+								{% for key,value in c_dict.iteritems() %}
+										<p>
+											{{key}}:{{value}}
+										</p>
+								{% endfor %}
+							{% endfor %}
+							{% endif %}
 					</div>
 					<div class="col-xs-1"></div>
 				</div>
