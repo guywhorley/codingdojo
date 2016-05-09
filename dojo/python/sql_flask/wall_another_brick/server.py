@@ -26,7 +26,7 @@ def index():
 		email = user[0]['email']
 		regDate = user[0]['created_at']
 		lastUpd = user[0]['updated_at']
-	return render_template('/index.html', fname=fname, lname=lname, email=email, regDate = regDate, lastUpd = lastUpd)
+	return redirect('/theWall')
 
 # Add comment to a postMessage
 @app.route('/comment/<id>/<user_id>')
@@ -64,11 +64,47 @@ def showTheWall():
 		regDate = user[0]['created_at']
 		lastUpd = user[0]['updated_at']
 
-		# build the wall with messages and comments
+		# build the wall: get all messages
 		query = "SELECT messages.user_id, users.first_name, users.last_name, messages.message, DATE_FORMAT(messages.created_at,'%a, %b %D %Y @%T') AS created_at, messages.id FROM messages JOIN users ON messages.user_id = users.id ORDER BY messages.created_at DESC"
 		messages = mysql.query_db(query)
 
-	return render_template('/wall.html', fname=fname, lname=lname, email=email, regDate = regDate, lastUpd = lastUpd, posts = messages)
+		# grab all comments associated with each message: iterate through messages and run the query
+		#
+		#     all_comments = [
+		#   	{ 'post.id': [ {comment-1}, {comment-2}, {comment-3}] },
+		#	 	{ 'post.id': [ {comment-1}, {comment-2}, {comment-3}] },
+		#	 	{ ... }
+		#	   ]
+		#   where each comment is encapuslated as an array of dictionary objects,
+		#	   { 'comment': c.comment, 'created_at': created_at, 'u.fname': u.fn, 'u.lname': u.ln }
+		#
+		all_comments = []
+		for message in messages:
+			cm_query = "SELECT u.first_name, u.last_name, c.comment, date_format(c.created_at,'%a, %b %d %Y %T') AS created_at from comments AS c join users AS u on c.user_id = u.id where c.message_id = :id ORDER BY c.created_at DESC"
+			cm_data = { 'id': message['id'] }
+			# select all comments related to messages and build master collection
+			temp = mysql.query_db(cm_query, cm_data)
+			if len(temp) > 0:
+				comArr = []
+				for i in range(len(temp)):
+					comment = temp[i] # current single comment record
+					buildIt = {}
+					buildIt = {
+						'comment': comment['comment'],
+						'created_at': comment['created_at'],
+						'u.fname': comment['first_name'],
+						'u.lname': comment['last_name']
+					}
+					# bundle all post comments into one array
+					comArr.append(buildIt)
+
+				postD = {} # create a temp dictionary
+				postD['id'] = message['id'] # associate key 'id' to actual id value
+				postD['comments'] = comArr # assocaite key 'comments' to array
+				all_comments.append(postD) # store the temp d in the all_commments array
+		#print all_comments
+
+	return render_template('/wall.html', fname=fname, lname=lname, email=email, regDate = regDate, lastUpd = lastUpd, posts = messages, comments = all_comments)
 #
 # Write message to DB
 @app.route('/postMessage', methods=['POST'])
@@ -183,9 +219,10 @@ def registerNewUser():
 
 @app.route('/logout')
 def logout():
-  #remove user_id from session
-  del session['user_id']
-  return redirect('/')
+  	#remove user_id from session
+	if 'user_id' in session:
+		del session['user_id']
+  	return redirect('/')
 
 # Return user data for given ID
 def getUserInfo(id):
