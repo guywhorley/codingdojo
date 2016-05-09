@@ -11,10 +11,12 @@
     background-color: $theme-bg-pri;
     color: $white;
     outline: 1px solid black;
-    .h1 { margin-top: 15px; }
-    .log-out {}
-		.glyphicon, a { color: $white; }
+    .h1 {
+			margin-left: 20px;
+			margin-top: 10px;
+		}
 }
+
 form {
 	box-sizing: border-box;
 	margin-top: 1em;
@@ -23,6 +25,11 @@ form {
 		float: right;
 		margin-top: 20px;
 		margin-left: 10px;
+	}
+	.a-refresh {
+		text-align: right;
+		padding-top: 5px;
+		padding-right: 65px;
 	}
 	textarea {
 		border-radius: 7px;
@@ -44,9 +51,15 @@ form {
 	@extend .font-sm;
 	.post-user { font-weight: 800; }
 	.post-date { font-style: italic; }
-
+	#btn-comment {
+		background-color: $white;
+		@extend .font-sm;
+		border: none;
+		display: inline-block;
+	}
+	.post-title>a { margin-left: 5px; }
 	.post-message {
- 		@extend .font-sm;
+ 		@extend .font-md;
 		padding-left: 5px;
 	}
 }

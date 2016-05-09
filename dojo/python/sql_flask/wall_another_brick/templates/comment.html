@@ -24,7 +24,6 @@
 
     <div id="header" class="row">
     	<div class="col-xs-8 h1">@theWall</div>
-			<div class="col-xs-2"></div>
 	  </div>
 
 		<div class="row">
@@ -37,34 +36,36 @@
 			 {% endwith %}
 		 </div>
 
-		<div class="row">
-			<div class="alt-choice-set">
-				<span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
-				<a href="/logout" class="alt-choice tac">Log-out</a>
-			</div>
-		</div>
+		 <div class="row">
+ 			<div class="alt-choice-set">
+ 				<span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
+ 				<a href="/logout" class="alt-choice tac">Log-out</a>
+ 			</div>
+ 		</div>
 
-		<div class="row">
+ 		<div class="row">
 			<div class="col-xs-1"></div>
-			<form action="/postMessage" method="post" class="col-xs-10">
-				<p class="col-xs-12">Hello <strong>{{ fname }}</strong>, post your message:</p>
-				<textarea name="content" class="col-xs-12 post-it" rows="5"></textarea>
+			<form action="/submitComment" method="post" class="col-xs-10">
+				<p class="col-xs-12"><strong>{{fname}} {{lname}}</strong> wrote on <em>{{cat}}</em>: <q>{{ post }}</q></p>
+				<textarea name="comment" class="col-xs-12 post-it" rows="5"></textarea>
 				<div class="col-xs-1"></div>
 				<div class="col-xs-1"></div>
 				<div class="col-xs-10">
-					<input class="btn btn-md btn-primary" type="submit" name="submit" value="Save " />
+					<input type="hidden" name="user_id" value="{{commentor_id}}" />
+					<input type="hidden" name="message_id" value="{{msg_id}}" />
+					<input class="btn btn-md btn-primary" type="submit" name="submit" value="Comment" />
 				</div>
 				<div class="col-xs-1"></div>
 
 				<div class="col-xs-1"></div>
-				<a href="/theWall" class="a-refresh col-xs-10 alt-choice tac">Refresh</a>
+				<a href="/theWall" class="a-refresh col-xs-10 alt-choice tac">Cancel</a>
 				<div class="col-xs-1"></div>
 
 			</form>
     </div>
 	</div>
 	<div class="container-fluid postings">
-			{% if posts %}
+			{% if messages %}
 			{% for post in posts %}
 				<div class="row posting">
 					<div class="col-xs-1"></div>
@@ -72,7 +73,7 @@
 						<span class="post-title">
 							<span class="post-user">{{ post['first_name']}} {{post['last_name']}} </span>
 							wrote on <span class="post-date">{{post['created_at']}}</span>:
-							<span class="post-message"><q>{{post['message']}}</q></span> <a href="/comment/{{post['id']}}/{{post['user_id']}}">(+comment)</a>
+							<span class="post-message"><q>{{post['message']}}</q></span>
 						</span>
 					</div>
 					<div class="col-xs-1"></div>

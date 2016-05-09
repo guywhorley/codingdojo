@@ -28,6 +28,27 @@ def index():
 		lastUpd = user[0]['updated_at']
 	return render_template('/index.html', fname=fname, lname=lname, email=email, regDate = regDate, lastUpd = lastUpd)
 
+# Add comment to a postMessage
+@app.route('/comment/<id>/<user_id>')
+def commentOnPost(id, user_id):
+	if not 'user_id' in session:
+		session['view'] = "alert"
+		flash("There's a problem! I didn't recognize your id.")
+		return redirect('/login')
+	else:
+		# Get original message and place text on top...
+		query = "SELECT messages.user_id,users.first_name, users.last_name, messages.message, DATE_FORMAT(messages.created_at,'%a, %b %D %Y @%T') AS created_at, messages.id FROM messages JOIN users ON messages.user_id = users.id WHERE messages.id = :id ORDER BY messages.created_at DESC LIMIT 1"
+		data = { 'id': id }
+		post = mysql.query_db(query, data)
+
+		fname = post[0]['first_name']
+		lname = post[0]['last_name']
+		cat = post[0]['created_at']
+		msg = post[0]['message']
+		msg_id =id
+
+	return render_template('/comment.html', commentor_id = user_id, msg_id = id, fname = fname, lname = lname, cat = cat, post = msg, messages = []) # fname=fname, lname=lname, email=email, regDate = regDate, lastUpd = lastUpd, messages=[])
+
 # Show user wall with messages
 @app.route('/theWall', methods=['POST','GET'])
 def showTheWall():
@@ -44,10 +65,8 @@ def showTheWall():
 		lastUpd = user[0]['updated_at']
 
 		# build the wall with messages and comments
-		query = "SELECT messages.user_id, users.first_name, users.last_name, messages.message, 		 DATE_FORMAT(messages.created_at,'%a, %b %D %Y @%T') AS created_at, messages.id FROM messages JOIN users ON messages.user_id = users.id ORDER BY messages.created_at DESC"
+		query = "SELECT messages.user_id, users.first_name, users.last_name, messages.message, DATE_FORMAT(messages.created_at,'%a, %b %D %Y @%T') AS created_at, messages.id FROM messages JOIN users ON messages.user_id = users.id ORDER BY messages.created_at DESC"
 		messages = mysql.query_db(query)
-		# for msg in messages:
-			# print "[id:{}] {} {}, at {}: [id:{}] {}".format(msg['user_id'], msg['first_name'], msg['last_name'], msg['created_at'], msg['id'], msg['message'])
 
 	return render_template('/wall.html', fname=fname, lname=lname, email=email, regDate = regDate, lastUpd = lastUpd, posts = messages)
 #
@@ -61,8 +80,22 @@ def postMessage():
 		query = "INSERT INTO messages (message, created_at, updated_at, user_id) VALUES (:msg, NOW(), NOW(), :u_id)"
 		data = { 'msg': request.form['content'], 'u_id' : session['user_id'] }
 		mysql.query_db(query, data)
-		# session['view'] = "success"
-		# flash("You posted okay!")
+	return redirect('/theWall')
+
+# Add Comment to database
+@app.route('/submitComment', methods=['POST'])
+def submitComment():
+	if (len(request.form['comment']) < 1):
+		session['view'] = "warning"
+		flash("FYI: You didn't include any text in your comment so I didn't save it.")
+	else:
+		query = "INSERT INTO comments (comment, created_at, updated_at, user_id, message_id) VALUES (:comment, NOW(), NOW(), :u_id, :m_id)"
+		data = {
+			'comment': request.form['comment'],
+			'u_id': request.form['user_id'],
+			'm_id': request.form['message_id']
+		}
+		mysql.query_db(query, data)
 	return redirect('/theWall')
 
 # Spawn the login page.
@@ -161,7 +194,6 @@ def getUserInfo(id):
 		user_query = "SELECT * FROM users WHERE ID = :id LIMIT 1"
 		query_data = { 'id': id }
 		my_user = mysql.query_db(user_query, query_data)
-		print my_user
 		return my_user
 	except:
 		session['view'] = "alert"

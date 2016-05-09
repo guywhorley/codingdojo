@@ -391,10 +391,10 @@ textarea {
 .tal {
   text-align: left; }
 
-.font-sm, a, .alt-choice-set .glyphicon, .posting, .posting .post-message {
+.font-sm, a, .alt-choice-set .glyphicon, .posting, .posting #btn-comment {
   font-size: 1.2rem; }
 
-.font-md, .btn-sm, .btn-md {
+.font-md, .btn-sm, .btn-md, .posting .post-message {
   font-size: 1.4rem; }
 
 .font-lg, .alert, .success, .warning {
@@ -519,9 +519,8 @@ ul li {
   color: white;
   outline: 1px solid black; }
   #header .h1 {
-    margin-top: 15px; }
-  #header .glyphicon, #header a {
-    color: white; }
+    margin-left: 20px;
+    margin-top: 10px; }
 
 form {
   box-sizing: border-box;
@@ -531,6 +530,10 @@ form {
     float: right;
     margin-top: 20px;
     margin-left: 10px; }
+  form .a-refresh {
+    text-align: right;
+    padding-top: 5px;
+    padding-right: 65px; }
   form textarea {
     border-radius: 7px;
     border: 3px solid darkgray; }
@@ -549,6 +552,12 @@ form {
     font-weight: 800; }
   .posting .post-date {
     font-style: italic; }
+  .posting #btn-comment {
+    background-color: white;
+    border: none;
+    display: inline-block; }
+  .posting .post-title > a {
+    margin-left: 5px; }
   .posting .post-message {
     padding-left: 5px; }
 
