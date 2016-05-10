@@ -18,6 +18,7 @@ class Bike(object):
         """ Display 'Riding' and add 10 to self.miles """
         self.miles += 10
         print "Riding 10 miles."
+        return self
 
     def reverse(self):
         """ Display 'Reversing' and decrease total miles by 5 """
@@ -27,14 +28,11 @@ class Bike(object):
         else:
             self.miles -= 5
             print "Reversing 5 miles. "
+        return self
 
 # Class tester
 b1 = Bike(100, 12)
 print "Bike1 initial state: {}".format(b1.displayInfo())
-b1.reverse()
-b1.reverse()
-b1.ride()
-b1.ride()
-b1.ride()
-b1.reverse()
+b1.reverse().reverse()
+b1.ride().ride().ride().reverse()
 print "Bike 1 ending state:{}".format(b1.displayInfo())
