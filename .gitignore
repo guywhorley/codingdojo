@@ -1,4 +1,5 @@
 # ignore the following files in this repo
 
+**/*.pyc
 **/.sass-cache
 **/css/styles.css.map
