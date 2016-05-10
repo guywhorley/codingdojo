@@ -88,8 +88,10 @@ def showTheWall():
 			# cm_query = "SELECT u.first_name, u.last_name, c.comment, date_format(c.created_at,'%a, %b %d %Y %T') AS created_at from comments AS c join users AS u on c.user_id = u.id where c.message_id = :id ORDER BY c.created_at DESC"
 			cm_query = "SELECT u2.first_name, u2.last_name, c.comment, date_format(c.created_at,'%a, %b %d %Y %T') AS created_at from comments AS c join users AS u on c.user_id = u.id join users AS u2 on c.user_id = u2.id where c.message_id = :id ORDER BY c.created_at DESC"
 			cm_data = { 'id': message['id'] }
+
 			# select all comments related to messages and build master collection
 			temp = mysql.query_db(cm_query, cm_data)
+
 			if len(temp) > 0:
 				comArr = []
 				for i in range(len(temp)):
@@ -160,6 +162,7 @@ def processLogin():
 	user_query = "SELECT * FROM users WHERE email = :email LIMIT 1"
 	query_data = { 'email': email }
 	user = mysql.query_db(user_query, query_data)
+
 	if not user: # email was not found - user is null/empty
 		session['view'] = "alert"
 		flash("That email does not exist! Sign-up now for a free account @theWall.")

@@ -1,0 +1,78 @@
+/* CSS rules for 'theWall' project. SASS-enabled.
+ * Author: Guy Whorley
+ */
+@import '_base.scss';
+
+#header {
+		outline: 1px solid red;
+	  vertical-align: center;
+    text-align: left;
+    height: 10%;
+    background-color: $theme-bg-pri;
+    color: $white;
+    outline: 1px solid black;
+    .h1 {
+			margin-left: 20px;
+			margin-top: 10px;
+		}
+}
+hr.wall-seperator {
+		margin-top: 30px; 
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+
+form {
+	box-sizing: border-box;
+	margin-top: 1em;
+	margin: 20px;
+	input[type=submit] {
+		float: right;
+		margin-top: 20px;
+		margin-left: 10px;
+	}
+	.a-refresh {
+		text-align: right;
+		padding-top: 5px;
+		padding-right: 65px;
+	}
+	textarea {
+		border-radius: 7px;
+		border: 3px solid $dgray;
+		}
+	textarea:focus { outline: none !important; }
+}
+
+.postings {
+	// outline: 1px solid red;
+	height: 40%;
+	overflow-x: hidden;
+	overflow-y: scroll;
+}
+.posting {
+	padding: 5px;
+	margin: 10px 20px;
+	@extend .font-sm;
+	.post-user { font-weight: 800; }
+	.post-date { font-style: italic; }
+	#btn-comment {
+		background-color: $white;
+		@extend .font-sm;
+		border: none;
+		display: inline-block;
+	}
+	.post-title>a { margin-left: 5px; }
+	.post-message {
+ 		@extend .font-md;
+		padding-left: 5px;
+	}
+	.comment-indent {
+		margin-top: 5px;
+		margin-left: 30px;
+	}
+	.post-comment {
+		color: $dgray;
+		margin-left: 30px;
+	}
+}
