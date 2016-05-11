@@ -31,9 +31,34 @@ class Animal(object):
 
     def displayHealth(self):
         """ Show health stats of animal """
-        print "name:{}, health:{}".format(self.name, self.health)
+        msg= "name:{}, health:{}".format(self.name, self.health)
+        return msg
+
+class Dog(Animal):
+    """ This class represents our four-legged friends """
+
+    def __init__(self,
+                 name = "nonce"):
+        super(Dog, self).__init__(name)
+        self.health = 150
+
+    def pet(self):
+        self.health += 5
+        print "Petting {}...".format(self.name)
         return self
 
-# Tester
-animal = Animal("animal")
-animal.walk().walk().walk().run().run().displayHealth()
+class Dragon(Animal):
+    """ Ths class represents misunderstood gentle, fire-breathing reptiles """
+
+    def __init__(self,
+                 name = "nonce"):
+        super(Dragon, self).__init__(name)
+        self.health = 170
+
+    def fly(self):
+        print "{} is flying...".format(self.name)
+        self.__dropHealth__("fly",10)
+        return self
+
+    def displayHealth(self):
+        return "This is a dragon! " + super(Dragon, self).displayHealth()
