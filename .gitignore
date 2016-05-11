@@ -1,4 +1,8 @@
 # ignore the following files in this repo
 
+# Compiled python files '.pyc'
+**/*.pyc
+
+# SASS
 **/.sass-cache
 **/css/styles.css.map
