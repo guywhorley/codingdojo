@@ -1,6 +1,6 @@
 # filename: test_animal.py
 # author: guy whorley
-# description: test the animal class.
+# description: test the Dog class.
 
 import pytest
 from app_classes import Dog
