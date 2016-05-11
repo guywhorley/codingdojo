@@ -1,6 +1,10 @@
 # filename: test_animal.py
 # author: guy whorley
 # description: test the Dog class.
+# 
+# see http://pytest.org/latest/ for information on unit-testing
+#   Install pytest:  "pip install -U pytest"  
+#   Install pytest-html plugin for html report: "pip install pytest-html"
 
 import pytest
 from app_classes import Dog
