@@ -3,6 +3,9 @@
 # Compiled python files '.pyc'
 **/*.pyc
 
-# SASS
+# cache files for pytest, html-reports
+**/cache
+
+# sass
 **/.sass-cache
 **/css/styles.css.map
