@@ -1,3 +1,8 @@
+/* Filename: variables.scss
+ * Author: Guy Whorley
+ * Description: Variables for other scss files in this set.
+ * See Styles.cscss for import loading order.
+ */
 @import url(https://fonts.googleapis.com/css?family=Roboto|Source+Sans+Pro|Open+Sans+Condensed:300|Oxygen);
 /*! normalize.css v4.1.1 | MIT License | github.com/necolas/normalize.css */
 /**
@@ -373,12 +378,23 @@ textarea {
   background-size: $width;
 } */
 /*
-base css rules
-Guy Whorley
-*/
+ *  Filename: base.scss
+ *  Author: Guy Whorley
+ *  Notes:
+ *   1. THe variables.scss contains required variables needed for base.scss.
+ *   2. For the import order, see styles.scss.
+ */
 body {
   font-family: "Source Sans Pro", sans-serif;
   color: black; }
+  body .wrapper {
+    border: 1px solid black;
+    box-shadow: 3px 3px 3px black;
+    width: 40%;
+    margin: 20px auto;
+    padding: 10px;
+    text-align: center;
+    border-radius: 10px; }
 
 /* example
 .rounded {

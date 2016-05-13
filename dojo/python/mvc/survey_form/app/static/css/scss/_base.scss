@@ -9,4 +9,13 @@
 body {
     font-family: $font-main;
     color: $black;
+    .wrapper {
+        border: 1px solid black;
+        box-shadow: 3px 3px 3px black;
+        width: 40%;
+        margin: 20px auto;
+        padding: 10px;
+        text-align: center;
+        border-radius: 10px;
+    }
 }
