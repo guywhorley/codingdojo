@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Form Data and Pylot</title>
+    <link rel="stylesheet" href="/static/css/styles.css" type="text/css">
+  </head>
+  <body>
+      <form action="/process" method="POST">
+          <p>Random Word (attempt #{{session['id']}})</p>
+          <div class="into-box">{{session['rndword']}}</div>
+          <input type="submit" name="generate" value="Generate" />
+      </form>
+  </body>
+</html>

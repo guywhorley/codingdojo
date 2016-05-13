@@ -1,0 +1,11 @@
+// templates (much like interfaces or parent classes in java)
+/* example
+.rounded {
+  border-radius: 10px;
+  height: 20%;
+  background-color: blue;
+}
+.roundmore {
+  @extend .rounded;
+  border-radius: 50px;
+} */
