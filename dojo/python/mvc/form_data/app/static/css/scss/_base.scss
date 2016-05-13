@@ -1,12 +1,15 @@
 /*
  *  Base css rules
  *  Author: Guy Whorley
- * 
+ *
  */
 
 body {
     font-family: $font-main;
     color: $black;
+    form {
+        margin: 0 10px;
+    }
     input {
         padding: 5px 10px;
         border-radius: 5px;

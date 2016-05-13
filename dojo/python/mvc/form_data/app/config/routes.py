@@ -20,6 +20,7 @@ from system.core.router import routes
 
 routes['default_controller'] = 'Welcome'
 routes['POST']['/process'] = 'Welcome#process'
+routes['GET']['/welcome/success'] = 'Welcome#success'
 
 """
     You can add routes and specify their handlers as follows:

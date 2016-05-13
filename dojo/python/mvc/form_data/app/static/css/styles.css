@@ -373,14 +373,15 @@ textarea {
   background-size: $width;
 } */
 /*
-base css rules
-Guy Whorley
-*/
-/* comment visible in processed css file */
-/*! This comment will always be visible, even with compression */
+ *  Base css rules
+ *  Author: Guy Whorley
+ *
+ */
 body {
   font-family: "Source Sans Pro", sans-serif;
   color: black; }
+  body form {
+    margin: 0 10px; }
   body input {
     padding: 5px 10px;
     border-radius: 5px; }
