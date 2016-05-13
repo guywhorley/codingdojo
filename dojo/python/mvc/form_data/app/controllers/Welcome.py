@@ -6,12 +6,14 @@
 from system.core.controller import *
 import datetime
 
-# Logging Utilities
-# Guy Whorley
-# Using ANSII Colors to print color console messages
-# To enable various levels of log messages, set logLevel as follows:
-#   logLevel = _NONE_ | _INFO_ | _ALL_
-#   NOTE: Error messages will always be displayed!
+# Logging Functions
+# Author: Guy Whorley
+# Description: Colorized console messages at different log levels. 
+#   Global log level is indicated by 'logLevel' flag set to  _NONE_, 
+#   _INFO_, or _ALL_. Custom error messages will always be printed to 
+#   the console. To enable various levels of log messages, set logLevel
+#   as follows: logLevel = _NONE_ | _INFO_ | _ALL_
+
 _NONE_ = 0
 _INFO_ = 1
 _ALL_  = 5
@@ -57,11 +59,14 @@ class Welcome(Controller):
 
         # return self.load_view('index.html', messages=messages, user=user)
         """
+        __logDebug__("Enter index()...")
+        
+        __logDebug__("Exit index()...")
         return self.load_view('index.html')
 
     def process(self):
-        __logDebug__("Entering process()...")
-        __logError__("Problem")
+        __logDebug__("Enter process('/')...")
+       
 
-        __logDebug__("Invoke redirect('/')")
+        __logDebug__("Exit process('/')")
         return redirect('/')
