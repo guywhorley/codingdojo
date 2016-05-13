@@ -388,6 +388,7 @@ body {
   font-family: "Source Sans Pro", sans-serif;
   color: black; }
   body .wrapper {
+    height: 70%;
     border: 1px solid black;
     box-shadow: 3px 3px 3px black;
     width: 40%;
@@ -395,6 +396,15 @@ body {
     padding: 10px;
     text-align: center;
     border-radius: 10px; }
+    body .wrapper .gbtn {
+      text-align: center;
+      vertical-align: center;
+      width: 100px;
+      padding: 5px;
+      margin: 5px;
+      border-radius: 5px;
+      background-color: white;
+      font-size: .90em; }
 
 /* example
 .rounded {

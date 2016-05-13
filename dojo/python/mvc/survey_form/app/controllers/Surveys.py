@@ -11,10 +11,10 @@ from system.core.controller import *
 class Surveys(Controller):
     def __init__(self, action):
         super(Surveys, self).__init__(action)
-        """
-            This is an example of loading a model.
-            Every controller has access to the load_model method.
-        """
+        # check and init counter
+        if not 'counter' in session:
+            session['counter'] = 0
+
         self.load_model('SurveysModel')
         self.db = self._app.db
 
@@ -22,6 +22,7 @@ class Surveys(Controller):
         return self.load_view('index.html')
 
     def process(self):
+        session['counter'] += 1
         return redirect('/result')
 
     def result(self):
