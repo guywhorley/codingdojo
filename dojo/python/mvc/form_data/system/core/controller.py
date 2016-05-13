@@ -10,7 +10,6 @@ from flask.views import View
 import requests
 from urllib import urlencode
 import importlib
-import gwutils
 
 class Controller(View):
     def __init__(self, action):
