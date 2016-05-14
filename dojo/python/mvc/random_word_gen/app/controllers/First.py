@@ -28,36 +28,36 @@ class First(Controller):
         # to pass information on to a view it's the same as it was with Flask
         # return self.load_view('index.html', messages=messages, user=user)
         """
-        glogDebug("Enter index()...")
+        glogDebug("Enter index() ...")
         self.__addSession__()
         session['rndword'] = self.__generateRandomWord__(14,14)
         glogDebug("rndword: {}".format(session['rndword']))
 
-        glogDebug("Exit index()...")
+        glogDebug("... exit index()")
         return self.load_view('index.html')
 
     def process(self):
-        glogDebug("Enter process('/')...")
+        glogDebug("Enter process('/') ...")
 
         # save count and random word in session object
         session['rndword'] = self.__generateRandomWord__(14,14)
         session['id'] += 1
 
-        glogDebug("Exit process('/')")
+        glogDebug("... exit process('/')")
         return redirect('/')
 
     def __addSession__(self):
         # if session['id'] exists: then noop
         # else: add key 'id' to session, set id = 0; using id as counter
-        glogDebug("Enter __addSession__")
+        glogDebug("Enter __addSession__() ...")
         if not (self.__isInSession__()):
             glogDebug("Adding session['id'] = 0")
             session['id'] = 0
-        glogDebug("Exit __addSession__")
+        glogDebug("... exit __addSession__()")
         #end def
 
     def __generateRandomWord__(self, min, max):
-        glogDebug("Enter __generateRandomWord__")
+        glogDebug("Enter __generateRandomWord__() ...")
 
         myText = ''
         choice = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','1','2','3','4','5','6','7','8','9']
@@ -68,14 +68,14 @@ class First(Controller):
 
             # myText += random.choice(choice)
         glogInfo(myText)
-        glogDebug("Exit __generateRandomWord__")
+        glogDebug("... exit __generateRandomWord__()")
         return myText
 
     def __isInSession__(self):
-        glogDebug("Enter __isInSession__")
+        glogDebug("Enter __isInSession__() ...")
         if 'id' in session:
             glogDebug("session['id'] exists")
-            glogDebug("exit __isInSession__:true")
+            glogDebug("... exit __isInSession__():true")
             return True
-        glogDebug("exit__isInSession__:false")
+        glogDebug("... exit__isInSession__():false")
         return False

@@ -7,9 +7,15 @@
     Create a controller using this template
 """
 from system.core.controller import *
+from gutils.glog import *
+
+# Controller name var used for glog messages
+cn = "Test"
 
 class Test(Controller):
+
     def __init__(self, action):
+        glogDebug("Enter {}#__init__()...".format(cn))
         super(Test, self).__init__(action)
         """
             This is an example of loading a model.
@@ -17,11 +23,14 @@ class Test(Controller):
         """
         # comment in IF you have a model for Test...   self.load_model('TestModel')
         self.db = self._app.db
+        glogDebug("...exit {}#__init__()".format(cn))
         """
         This is an example of a controller method that will load a view for the client
         """
 
     def index(self, name, id):
+        glogDebug("Enter {}#index()...".format(cn))
+
         """
         A loaded model is accessible through the models attribute
         self.models['WelcomeModel'].get_users()
@@ -33,7 +42,11 @@ class Test(Controller):
 
         # return self.load_view('index.html', messages=messages, user=user)
         """
+        glogDebug("...exit {}#index()".format(cn))
         return self.load_view('Test/index.html', name = name, id = id)
 
     def admin(self, name, id='007'):
+        glogDebug("Enter {}#admin()...".format(cn))
+
+        glogDebug("'... exit {}#admin()".format(cn))
         return "<h1>Test#admin</h1><p>Hello {}. Your ID is {}.</p><p>You have reached the admin page for 'Test'.</p>".format(name, id)

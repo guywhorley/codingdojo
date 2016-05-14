@@ -1,17 +1,36 @@
 <!DOCTYPE html>
-<html>
-  <head>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="description" content="<DESCRIPTION_HERE>">
+    <meta name="keywords" content="kw1, kw2, kw3">
+    <meta name="author" content="Guy Whorley">
+
     <title>Survey Results</title>
+
+    <!-- Mobile Specific Meta for Skeleton -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Styles, Icons -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
     <link rel="stylesheet" href="/static/css/styles.css" type="text/css">
-  </head>
-  <body>
-      <div class="wrapper">
-          <h1>Surver Results</h1>
-          <div class="counter">Page Counter: {{session['counter']}}</div>
-          <p>Survey Results goes here.</p>
-          <form action="/" method="GET">
-              <input class="gbtn" type="submit" name="goback" value="Go Back" />
-          </form>
-      </div>
-  </body>
+
+</head>
+<body>
+    <!-- <a href="/clear">Clear Data and Go Home</a> -->
+    <div class="container">
+        <div class="row">
+            <div class="two column">
+                <h1>Surver Results</h1>
+                <div class="counter">Page Counter: {{session['counter']}}</div>
+                <p>Survey Results goes here.</p>
+                <form action="/" method="GET">
+                    <input class="gbtn" type="submit" name="goback" value="Go Back" />
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
 </html>

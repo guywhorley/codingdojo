@@ -20,6 +20,7 @@ from system.core.router import routes
 routes['default_controller'] = 'Surveys'
 routes['POST']['/process'] = 'Surveys#process'
 routes['GET']['/result'] = 'Surveys#result'
+routes['GET']['/clear'] = 'Surveys#index'
 
 """
     You can add routes and specify their handlers as follows:
