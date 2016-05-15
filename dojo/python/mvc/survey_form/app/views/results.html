@@ -24,9 +24,12 @@
             <div class="two column">
                 <h1>Surver Results</h1>
                 <div class="counter">Page Counter: {{session['counter']}}</div>
-                <p>Survey Results goes here.</p>
+                <div>Name: {{session['name']}}</div>
+                <div>Location: {{session['location']}}</div>
+                <div>Language: {{session['language']}}</div>
+                <div>Comment: {{session['comment']}}</div>
                 <form action="/" method="GET">
-                    <input class="gbtn" type="submit" name="goback" value="Go Back" />
+                    <input class="button-primary" type="submit" name="goback" value="Go Back" />
                 </form>
             </div>
         </div>

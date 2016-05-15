@@ -21,24 +21,33 @@
 
     <div class="container">
         <div class="row">
-            <div class="two-column">
-                <h1>Survey Form</h1>
+            <div class="three columns"></div>
+            <div class="six columns">
+                <h1>Survey</h1>
                 <form action="/process" method="POST">
-                    <input type="text" name="name" placeholder="Enter your name."><br />
-                    <select name="favlocation">
+                    <label for="name">Name:</label>
+                    <input autofocus type="text" name="name" placeholder="Enter your name."><br />
+
+                    <label for="favloc">Location:</label>
+                    <select id="favloc" name="favlocation">
                         <option value="Seattle">Seattle</option>
                         <option value="LA">Los Angelas</option>
                         <option value="Toledo">Toledo</option>
                         <option value="Denver">Denver</option>
                     </select><br />
+
+                    <label for="lang">Language:</label>
                     <select name="favlanguage">
                         <option value="js">Javascript</option>
                         <option value="py">Python</option>
                         <option value="rb">Ruby</option>
                     </select><br/>
+
+                    <label for="com">Comments:</label>
                     <textarea name="comments" rows="10"></textarea>
-                    <input class="gbtn" type="submit" name="testme" placeholder="test-value" value="Submit" />
+                    <input class="button-primary" type="submit" name="testme" placeholder="test-value" value="Submit" />
                 </form>
+                <div class="three columns"></div>
             </div>
         </div>
     </div>

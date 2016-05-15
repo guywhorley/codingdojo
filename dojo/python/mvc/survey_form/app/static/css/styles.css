@@ -25,7 +25,7 @@
 */
 /* Grid
 ΓÇôΓÇôΓÇôΓÇôΓÇôΓÇôΓÇôΓÇôΓÇôΓÇôΓÇôΓÇôΓÇôΓÇôΓÇôΓÇôΓÇôΓÇôΓÇôΓÇôΓÇôΓÇôΓÇôΓÇôΓÇôΓÇôΓÇôΓÇôΓÇôΓÇôΓÇôΓÇôΓÇôΓÇôΓÇôΓÇôΓÇôΓÇôΓÇôΓÇôΓÇôΓÇôΓÇôΓÇôΓÇôΓÇôΓÇôΓÇôΓÇôΓÇô */
-@import url(https://fonts.googleapis.com/css?family=Roboto|Source+Sans+Pro|Open+Sans+Condensed:300|Oxygen);
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,300,500);
 .container {
   position: relative;
   width: 100%;
@@ -887,31 +887,32 @@ textarea {
 body {
   font-family: "Source Sans Pro", sans-serif;
   color: black; }
-  body a {
-    display: block;
-    text-align: right;
-    margin: 30px; }
-  body .wrapper {
+  body .container {
+    width: 350px;
     border: 1px solid black;
     box-shadow: 3px 3px 3px black;
-    width: 40%;
-    margin: 50px auto;
+    margin: 100px auto;
     padding: 10px;
-    text-align: center;
     border-radius: 10px; }
-    body .wrapper option {
+    body .container label, body .container h1 {
+      text-align: left; }
+    body .container h1 {
+      margin: 15px auto; }
+    body .container input, body .container select, body .container textarea, body .container label {
+      padding: 5px 0px;
+      width: 300px; }
+    body .container textarea {
+      overflow-y: scroll;
+      word-wrap: break-all;
+      width: 300px; }
+    body .container input {
+      padding-left: 5px; }
+    body .container option {
       width: 100px; }
-    body .wrapper form {
-      display: block; }
-    body .wrapper .gbtn {
-      text-align: center;
-      vertical-align: center;
-      width: 100px;
-      padding: 5px;
-      margin: 5px;
-      border-radius: 5px;
-      background-color: white;
-      font-size: .90em; }
+    body .container .button-primary {
+      margin-top: 20px;
+      height: 50px;
+      padding: 5px; }
 
 /* example
 .rounded {

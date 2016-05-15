@@ -29,8 +29,14 @@ class Surveys(Controller):
 
     def process(self):
         glogDebug("Enter {}#process()...".format(cn))
-
         session['counter'] += 1
+
+        # grab form data
+        session['name']        = request.form['name']
+        session['location'] = request.form['favlocation']
+        session['language']    = request.form['favlanguage']
+        session['comment']     = request.form['comments']
+
 
         glogDebug("...exit {}#process()".format(cn))
         return redirect('/result')
