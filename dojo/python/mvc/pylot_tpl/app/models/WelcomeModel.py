@@ -8,10 +8,11 @@
     Create a model using this template.
 """
 from system.core.model import Model
-from gutils.glog import *
+import logging
 
 class WelcomeModel(Model):
     def __init__(self):
+        logging.debug("init_model:begin")
         super(WelcomeModel, self).__init__()
     """
     Below is an example of a model method that queries the database for all users in a fictitious application

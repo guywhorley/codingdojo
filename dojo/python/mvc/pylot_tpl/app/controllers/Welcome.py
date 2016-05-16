@@ -7,10 +7,7 @@
     Create a controller using this template
 """
 from system.core.controller import *
-from gutils.glog import *
-
-# Controller name var used for glog messages
-cn = "Welcome"
+import logging
 
 class Welcome(Controller):
 

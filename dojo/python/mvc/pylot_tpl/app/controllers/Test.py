@@ -7,7 +7,7 @@
     Create a controller using this template
 """
 from system.core.controller import *
-from gutils.glog import *
+import logging
 
 class Test(Controller):
 
