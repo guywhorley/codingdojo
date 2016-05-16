@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="description" content="<DESCRIPTION_HERE>">
+    <meta name="keywords" content="kw1, kw2, kw3">
+    <meta name="author" content="Guy Whorley">
+
+    <title>Survey Form</title>
+
+    <!-- Mobile Specific Meta for Skeleton -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Styles, Icons -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="stylesheet" href="/static/css/styles.css" type="text/css">
+
+</head>
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="three columns"></div>
+            <div class="six columns">
+                <h1>Survey</h1>
+                <form action="/process" method="POST">
+                    <label for="name">Name:</label>
+                    <input autofocus type="text" name="name" placeholder="Enter your name."><br />
+
+                    <label for="favloc">Location:</label>
+                    <select id="favloc" name="favlocation">
+                        <option value="Seattle">Seattle</option>
+                        <option value="LA">Los Angelas</option>
+                        <option value="Toledo">Toledo</option>
+                        <option value="Denver">Denver</option>
+                    </select><br />
+
+                    <label for="lang">Language:</label>
+                    <select name="favlanguage">
+                        <option value="js">Javascript</option>
+                        <option value="py">Python</option>
+                        <option value="rb">Ruby</option>
+                    </select><br/>
+
+                    <label for="com">Comments:</label>
+                    <textarea name="comments" rows="10"></textarea>
+                    <input class="button-primary" type="submit" name="testme" placeholder="test-value" value="Submit" />
+                </form>
+                <div class="three columns"></div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

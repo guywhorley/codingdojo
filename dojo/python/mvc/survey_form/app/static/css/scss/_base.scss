@@ -1,0 +1,38 @@
+/*
+ *  Filename: base.scss
+ *  Author: Guy Whorley
+ *  Notes:
+ *   1. THe variables.scss contains required variables needed for base.scss.
+ *   2. For the import order, see styles.scss.
+ */
+
+body {
+    font-family: $font-main;
+    color: $black;
+    .container {
+        width:350px;
+        border: 1px solid $black;
+        box-shadow: 3px 3px 3px $black;
+        margin: 100px auto;
+        padding: 10px;
+        border-radius: 10px;
+        label, h1 { text-align: left; }
+        h1 { margin: 15px auto;  }
+        input, select, textarea,label {
+            padding: 5px 0px;
+            width: 300px;
+        }
+        textarea {
+            overflow-y: scroll;
+            word-wrap: break-all;
+            width: 300px;
+        }
+        input { padding-left: 5px; }
+        option { width: 100px; }
+        .button-primary {
+            margin-top: 20px;
+            height: 50px;
+            padding: 5px;
+        }
+    }
+}

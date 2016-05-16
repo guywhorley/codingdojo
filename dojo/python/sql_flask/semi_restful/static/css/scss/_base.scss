@@ -1,0 +1,104 @@
+/* Core css rules for my projects. SASS-enabled.
+ * Author: Guy Whorley
+ * This requires the partial: '-variables.scss'.
+ */
+
+* { font-family: $font-main; color: $black; }
+
+.ml-15 { margin-left: 15px; }
+.pd-5 { padding: 5px; }
+.tac { text-align: center; }
+.taj { text-align: justify; }
+.tal { text-align: left; }
+.font-sm { font-size: 1.2rem;; }
+.font-md { font-size: 1.4rem; }
+.font-lg { font-size: 1.6rem; }
+.col-sm-offset-2 { text-align: left; }
+
+form { margin-top: 5%; }
+fieldset {
+  padding: 0;
+  width: 100%;
+  border: 0;
+  border-color: $white;
+  legend { border: 0; }
+  input { width: 100%; }
+  input[type=submit] { width: 100%; }
+}
+.alert, .success, .warning {
+  @extend .font-lg;
+  @extend .tac;
+  border-radius: 0px;
+  padding: 15px 20px;
+	margin-top: 0;
+	font-weight: 500;
+
+}
+.alert {
+	color: $white;
+  background: #6c0000; /* Old browsers */
+  background: #ff3019; /* Old browsers */
+  background: -moz-linear-gradient(top,  #ff3019 0%, #cf0404 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top,  #ff3019 0%,#cf0404 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom,  #ff3019 0%,#cf0404 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff3019', endColorstr='#cf0404',GradientType=0 ); /* IE6-9 */
+}
+.success {
+	color: $white;
+	background: #299a0b; /* Old browsers */
+  background: -moz-linear-gradient(top,  #299a0b 0%, #299a0b 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top,  #299a0b 0%,#299a0b 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom,  #299a0b 0%,#299a0b 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#299a0b', endColorstr='#299a0b',GradientType=0 ); /* IE6-9 */
+}
+.warning {
+	color: $white;
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#fcb902+0,f9a302+100 */
+	background: #fcb902; /* Old browsers */
+  background: -moz-linear-gradient(top,  #fcb902 0%, #f9a302 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top,  #fcb902 0%,#f9a302 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom,  #fcb902 0%,#f9a302 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcb902', endColorstr='#f9a302',GradientType=0 ); /* IE6-9 */
+}
+
+input {
+  height: 35px;
+  margin: 5px 0;
+  padding: 10px 5px;
+}
+
+.form-label { @extend .ml-15; width: 100px; }
+
+.col-md-12.h1 { margin: 10px; }
+input.btn-md { width: 147px;  }
+
+table {
+    @extend .pd-5;
+    td, th { @extend .tac; }
+    tr td:nth-child(1) { width: 110px; }
+}
+
+.btn-sm, .btn-md {
+  vertical-align: top;
+  height: 35px;
+  :hover { background-color: $gray;  }
+  @extend .pd-5;
+  @extend .font-md;
+  .btn-sm { width: 200px; }
+  .btn-md { width: 375px; }
+}
+.move-left { margin-left: 20px; }
+a {
+  width: 147px;
+  @extend .font-sm;
+ }
+.alt-choice-set {
+  float: right;
+  .alt-choice { margin:10px 25px 0 1px; }
+  .glyphicon {
+    color: $theme-btn-pri;
+    margin: 10px 3px 0 0;
+    @extend .font-sm;
+   }
+}
+ul li { list-style-type: none; }

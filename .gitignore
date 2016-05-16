@@ -1,5 +1,14 @@
 # ignore the following files in this repo
 
+# Log files
+**/*.log
+
+# Compiled python files '.pyc'
 **/*.pyc
+
+# cache files for pytest, html-reports
+**/cache
+
+# sass
 **/.sass-cache
 **/css/styles.css.map

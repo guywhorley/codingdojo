@@ -1,0 +1,18 @@
+/*
+ *  Base css rules
+ *  Author: Guy Whorley
+ *
+ */
+
+body {
+    font-family: $font-main;
+    color: $black;
+    form {
+        width: 40%;
+        margin: 10px auto;
+    }
+    input {
+        padding: 5px 10px;
+        border-radius: 5px;
+    }
+}
