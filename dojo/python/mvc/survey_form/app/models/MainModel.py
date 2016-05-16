@@ -10,9 +10,13 @@
 from system.core.model import Model
 from gutils.glog import *
 
-class TestModel(Model):
+class MainModel(Model):
+
     def __init__(self):
-        super(TestModel, self).__init__()
+        # logging.debug('Initialize MainModel...')
+        super(MainModel, self).__init__()
+
+
     """
     Below is an example of a model method that queries the database for all users in a fictitious application
 

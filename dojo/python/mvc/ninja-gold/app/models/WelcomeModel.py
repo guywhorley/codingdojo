@@ -1,21 +1,20 @@
-"""
+""" 
     Sample Model File
 
-    A Model should be in charge of communicating with the Database.
+    A Model should be in charge of communicating with the Database. 
     Define specific model method that query the database for information.
     Then call upon these model method in your controller.
 
     Create a model using this template.
 """
 from system.core.model import Model
-from gutils.glog import *
 
-class TestModel(Model):
+class WelcomeModel(Model):
     def __init__(self):
-        super(TestModel, self).__init__()
+        super(WelcomeModel, self).__init__()
     """
     Below is an example of a model method that queries the database for all users in a fictitious application
-
+    
     Every model has access to the "self.db.query_db" method which allows you to interact with the database
 
     def get_users(self):
@@ -32,7 +31,7 @@ class TestModel(Model):
         data = {'message': 'awesome bro', 'users_id': 1}
         self.db.query_db(sql, data)
         return True
-
+    
     def grab_messages(self):
         query = "SELECT * from messages where users_id = :user_id"
         data = {'user_id':1}

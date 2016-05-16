@@ -8,10 +8,19 @@
     Create a model using this template.
 """
 from system.core.model import Model
+import logging
+
+# Logging Params
+# logLevel = logging.INFO #DEBUG
+# logFile = './logs/model-surveys.log'
+# logFormat = '%(asctime)s   %(levelname)-8s   %(filename)-16s:%(lineno)-3d   %(message)s'
 
 class SurveysModel(Model):
     def __init__(self):
         super(SurveysModel, self).__init__()
+        logging.debug('Enter model__init__')
+
+        logging.debug('Exit model__init__')
     """
     Below is an example of a model method that queries the database for all users in a fictitious application
 

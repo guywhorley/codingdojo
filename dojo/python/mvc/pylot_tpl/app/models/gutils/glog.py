@@ -11,8 +11,8 @@ To use:
 
 # logLevel = logging.NOTSET
 # logLevel = logging.ERROR
-logLevel = logging.DEBUG
-# logLevel = logging.INFO
+# logLevel = logging.DEBUG
+logLevel = logging.INFO
 
 # Initialize Logging Variables
 logFormat = '%(asctime)s   %(levelname)-7s {%(filename)s#%(funcName)s}\tLn:%(lineno)-3d - %(message)s'

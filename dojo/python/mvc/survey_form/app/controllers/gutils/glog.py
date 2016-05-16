@@ -1,33 +1,20 @@
-# Logging Functions
-# Author: Guy Whorley
-# Description: Colorized console messages at different log levels.
-#   Global log level is indicated by 'logLevel' flag set to  _NONE_,
-#   _INFO_, or _ALL_. Custom error messages will always be printed to
-#   the console. To enable various levels of log messages, set logLevel
-#   as follows: logLevel = _NONE_ | _INFO_ | _ALL_
+import logging
+"""
+Use Pyhon's logging modules for my controllers.
+To use:
+    0. To set global log level, edit /controllers/gutils.glog.py and set logLevel to desired level, save file.
+    1. Ensure that the gtils module is present in the /controllers and /models directories.
+    2. Ensure that 'from gutils.glog import *' is placed at top of .py file.
+    3. Put logging messages as follows:
+        logging.info('<msg>')  | .error, .warning, .debug
+"""
 
-import datetime
+# logLevel = logging.NOTSET
+# logLevel = logging.ERROR
+logLevel = logging.DEBUG
+# logLevel = logging.INFO
 
-_NONE_ = 0
-_INFO_ = 1
-_ALL_  = 5
-WARNING = '\033[93m'
-FAIL    = '\033[91m'
-BLUE    = '\033[1;35m'
-ENDC    = '\033[0m'
-
-# SET LOG LEVEL - _NONE_, _INFO_, _ALL_
-logLevel = _ALL_
-
-def glogError(msg):
-    __log__(FAIL, "ERROR", msg)
-def glogInfo(msg):
-    if (logLevel >= _INFO_):
-        __log__(BLUE, "INFO ", msg)
-def glogDebug(msg):
-    if (logLevel >= _ALL_):
-        __log__(WARNING,"DEBUG", msg)
-def __log__(color, level, msg):
-    currDay = datetime.datetime.now().strftime('%m-%d-%Y')
-    currTime = datetime.datetime.now().strftime('%H:%M:%S')
-    print "{}{} - {} - {} - {}{}".format(color, currDay, currTime, level, msg, ENDC)
+# Initialize Logging Variables
+logFormat = '%(asctime)s   %(levelname)-7s {%(filename)s#%(funcName)s}\tLn:%(lineno)-3d - %(message)s'
+logFile = './logs/controller-surveys.log'
+logging.basicConfig(format=logFormat, filename=logFile, level=logLevel)

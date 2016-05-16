@@ -14,8 +14,10 @@ cn = "Welcome"
 
 class Welcome(Controller):
 
+    # TODO Copy over logic, convert to mvc
+
     def __init__(self, action):
-        logging.debug("init:begin")
+        glogDebug("Enter {}#__init__()...".format(cn))
         super(Welcome, self).__init__(action)
         """
             This is an example of loading a model.
@@ -23,15 +25,16 @@ class Welcome(Controller):
         """
         self.load_model('WelcomeModel')
         self.db = self._app.db
+        glogDebug("...exit {}#__init__()".format(cn))
+
         """
+
         This is an example of a controller method that will load a view for the client
+
         """
 
     def index(self):
-        # logging.debug("index:begin")
-        logging.info("Loading index.html...")
-        logging.error("problem with page...")
-        logging.warning("somethings not right!")
+        glogDebug("Enter {}#index()...".format(cn))
         """
         A loaded model is accessible through the models attribute
         self.models['WelcomeModel'].get_users()
@@ -44,8 +47,13 @@ class Welcome(Controller):
         # return self.load_view('index.html', messages=messages, user=user)
         """
 
-        # logging.debug("index:end")
+        glogDebug("...exit {}#index()".format(cn))
         return self.load_view('index.html')
 
     def test(self):
+        glogDebug("Enter {}#test()...".format(cn))
+
+        # TODO get rid of test method
+
+        glogDebug("...exit {}#test()".format(cn))
         return "<h2>Test Page</h2><p>You have reached the test page.</p>"
