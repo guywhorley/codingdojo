@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="description" content="ninja gold exercise using pylot mvc">
+    <meta name="keywords" content="_KW1_, _KW2_, _KW3_">
+    <meta name="author" content="Guy Whorley">
+
+    <title>Ninja Gold</title>
+
+    <!-- Mobile Specific Meta for Skeleton -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Styles, Icons -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="stylesheet" href="/static/css/styles.css" type="text/css">
+
+</head>
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="title twelve columns"><h1>Ninja Gold</h1></div>
+        </div>
+        <div class="row">
+            <div class="twelve columns">Your Gold: <span id="gold-count">{{session['gold']}}</span></div>
+        </div>
+        <div class="row">
+            <div class="game-panel three columns">
+                <h4>Farm</h4>
+                (earns 10-20 coins)
+                <form action="/process_money" method="post">
+                    <input type="hidden" name="venue" value="farm" />
+                    <input class="button-primary" type="submit" name="submit" value="Find Gold!" />
+                </form>
+            </div>
+            <div class="game-panel three columns">
+                <h4>Cave</h4>
+                (earns 5-10 coins)
+                <form action="/process_money" method="post">
+                    <input type="hidden" name="venue" value="cave" />
+                    <input class="button-primary" type="submit" name="submit" value="Find Gold!" />
+                </form>
+            </div>
+            <div class="game-panel three columns">
+                <h4>House</h4>
+                (earns 2-5 coins)
+                <form action="/process_money" method="post">
+                    <input type="hidden" name="venue" value="house" />
+                    <input class="button-primary" type="submit" name="submit" value="Find Gold!" />
+                </form>
+            </div>
+            <div class="game-panel three columns">
+                <h4>Casino</h4>
+                (earns/loses 0-50 coins)
+                <form action="/process_money" method="post">
+                    <input type="hidden" name="venue" value="casino" />
+                    <input class="button-primary" type="submit" name="submit" value="Find Gold!" />
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="log twelve columns">
+                {% for msg in session['messages'] %}
+                    <div class="game-msg">{{msg}}</div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

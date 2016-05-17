@@ -23,4 +23,5 @@ manager = Manager(app)
 manager.add_command('runserver', Server(host='127.0.0.1'))
 
 if __name__ == "__main__":
+    manager.debug = True
     manager.run()

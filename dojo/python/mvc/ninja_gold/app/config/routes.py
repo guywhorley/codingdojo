@@ -1,13 +1,14 @@
-"""
-    Routes Configuration File
-
-    Put Routing rules here
-"""
 from system.core.router import routes
+
+routes['default_controller'] = 'Game'
+routes['POST']['/process_money'] = 'Game#process_money'
+
+#routes['GET']['/Welcome/test'] = 'Welcome#test'
+#routes['GET']['/Test/<name>/<id>'] = 'Test#index'
+#routes['GET']['/Test/admin/<name>/<id>'] = 'Test#admin'
 
 """
     This is where you define routes
-
     Start by defining the default controller
     Pylot will look for the index method in the default controller to handle the base route
 
@@ -16,11 +17,6 @@ from system.core.router import routes
     named id the automatically generated url would be '/products/add/<id>'
     The automatically generated routes respond to all of the http verbs (GET, POST, PUT, PATCH, DELETE)
 """
-''' URL Patter  =  Class#Method '''
-routes['default_controller'] = 'Welcome'
-routes['GET']['/Welcome/test'] = 'Welcome#test'
-routes['GET']['/Test/<name>/<id>'] = 'Test#index'
-routes['GET']['/Test/admin/<name>/<id>'] = 'Test#admin'
 
 """
     You can add routes and specify their handlers as follows:

@@ -1,0 +1,39 @@
+/*
+ *  Filename: base.scss
+ *  Author: Guy Whorley
+ *  Notes:
+ *   1. THe variables.scss contains required variables needed for base.scss.
+ *   2. For the import order, see styles.scss.
+ */
+
+body {
+    font-family: $font-main;
+    color: $black;
+}
+.container {
+    .title { margin: 20px 0; }
+    #gold-count {
+        margin-left: 20px;
+        padding: 5px 10px;
+        width: 100px;
+        border: 1px solid lightgray;
+    }
+    .game-panel {
+        padding: 5px;
+        border-radius: 10px;
+        margin-top: 15px;
+        margin-bottom:15px;
+        border: 1px solid black;
+        box-shadow: 4px 4px 4px black;
+        text-align: center;
+        height: 200px;
+    }
+    form { margin-top: 60px; }
+    .log {
+        margin-top: 20px;
+        padding: 20px;
+        height: 300px;
+        overflow-y: scroll;
+    }
+    .game-msg { margin: 5px 0; }
+}
