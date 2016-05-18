@@ -3,11 +3,11 @@
 <head>
 
     <meta charset="utf-8">
-    <meta name="description" content="_YOUR_DESCRIPTION_HERE_">
+    <meta name="description" content="crud application">
     <meta name="keywords" content="_KW1_, _KW2_, _KW3_">
     <meta name="author" content="Guy Whorley">
 
-    <title> _PAGE_TITLE_HERE_ </title>
+    <title>Add A New Course</title>
 
     <!-- Mobile Specific Meta for Skeleton -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -21,10 +21,24 @@
 
     <div class="container">
         <div class="row">
-            <div class="one-half column">
-                <h4>Basic Page</h4>
-                <p>The best place to start is the "WelcomeController.py" file in app/controllers.</p>
+            <div class="twelve columns">
+                <form action="/courses/add" method="post">
+                    <h2>Add a new course</h2>
+                    <input type="text" name="name" placeholder="Enter course name" />
+                    <textarea name="description" placeholder="Enter course description"></textarea>
+                    <input type="submit" name="submit" value="Add Course" />
+                </form>
             </div>
+        </div>
+        <div class="row">
+            <div class="two columns"></div>
+            <div class="ten columns">
+                <h3>Courses</h3>
+                <div class="listing">
+                    <p>Course listings go here...</p>
+                </div>
+            </div>
+            <div class="two columns"></div>
         </div>
     </div>
 
