@@ -1,0 +1,8 @@
+// sass mixins act like macros or funnctions.
+/* example 
+@mixin setBackgroundImage($image, $width: 70%) {
+  background: url($image);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: $width;
+} */

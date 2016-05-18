@@ -1,0 +1,20 @@
+/* Filename: variables.scss
+ * Author: Guy Whorley
+ * Description: Variables for other scss files in this set.
+ * See Styles.cscss for import loading order.
+ */
+
+@import url(https://fonts.googleapis.com/css?family=Roboto|Source+Sans+Pro|Open+Sans+Condensed:300|Oxygen);
+
+// FONTS
+$font-main: 'Source Sans Pro', sans-serif;
+$font-alt: 'Roboto', sans-serif;
+
+// COLOR ASSIGNMENTS
+$black: black;
+$red: red;
+$green: green;
+$gray: gray;
+$dgray: darkgray;
+$yellow: yellow;
+$white: white;
