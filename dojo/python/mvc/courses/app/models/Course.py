@@ -30,8 +30,19 @@ class Course(Model):
     def get_courses(self):
         """ Get all courses """
         logging.debug("f(x) entry")
-        query = "SELECT * from codingdojo.courses ORDER BY title ASC"
+        query = "SELECT * from codingdojo.courses ORDER BY created_at DESC"
         return self.db.query_db(query)
+
+    # READ one course by id
+    def get_courseById(self, course_id):
+        """ Get course by course_id """
+        logging.debug("get course by id:{}".format(course_id))
+        query = "SELECT * FROM courses WHERE id = :id"
+        data  = { 'id': course_id }
+        results = self.db.query_db(query, data)
+        logging.warning(results)
+
+        return results #self.db.query_db(query, data)
 
     # DELETE courses - validated
     def delete_courseById(self, course_id):

@@ -21,24 +21,42 @@
 
     <div class="container">
         <div class="row">
-            <div class="twelve columns">
-                <form action="/courses/add" method="post">
+            <div class="three columns"></div>
+            <div class="six columns">
+                <form id="class-inp" action="/courses/add" method="post">
                     <h2>Add a new course</h2>
-                    <input type="text" name="name" placeholder="Enter course name" />
-                    <textarea name="description" placeholder="Enter course description"></textarea>
-                    <input type="submit" name="submit" value="Add Course" />
+                    <input id="ctitle" type="text" name="title" placeholder="Enter course name" />
+                    <textarea id="cdesc" name="description" placeholder="Enter course description"></textarea>
+                    <input type="submit" name="submit"  class="button-primary" value="Add Course" />
                 </form>
             </div>
+            <div class="three columns"></div>
         </div>
         <div class="row">
-            <div class="two columns"></div>
-            <div class="ten columns">
+            <div class="one column"></div>
+            <div class="eleven columns">
                 <h3>Courses</h3>
                 <div class="listing">
-                    <p>Course listings go here...</p>
+                    <table>
+                        <tr>
+                            <th>Course Name</th>
+                            <th>Description</th>
+                            <th>Date Added</th>
+                            <th>Actions</th>
+                        </tr>
+                        {% for course in courses %}
+                        <tr>
+                            <td>{{course['title']}}</td>
+                            <td>{{course['description']}}</td>
+                            <td>{{course['created_at']}}</td>
+                            <td><a href="courses/destroy/{{course['id']}}">remove</a></td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+
                 </div>
             </div>
-            <div class="two columns"></div>
+            <div class="one column"></div>
         </div>
     </div>
 

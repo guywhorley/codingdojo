@@ -8,5 +8,29 @@
 
 body { font-family: $font-main; color: $black; }
 .container {
-
+    .listing {
+        padding: 20px; 
+        height: 300px;
+        overflow-y: scroll;
+        button { margin-top: 20px; }
+    }
+    .alert {
+        color: $white;
+        background-color: $red;
+        }
+    a { color: black;
+        text-decoration: none; }
+    a::hover{ text-decoration: underline; }
+    h3 { margin-top: 35px; }
+    #class-inp {
+        #ctitle, #cdesc {
+            padding: 3px 0 0 5px;
+            margin: 10px 0 5px 0;
+            width: 100%; }
+        .button-primary {
+            font-size: .9rem;
+            width: 70%;
+            margin: 0 auto;
+         }
+    }
 }

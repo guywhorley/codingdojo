@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="description" content="crud application">
+    <meta name="keywords" content="_KW1_, _KW2_, _KW3_">
+    <meta name="author" content="Guy Whorley">
+
+    <title>Delete Course</title>
+
+    <!-- Mobile Specific Meta for Skeleton -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Styles, Icons -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="stylesheet" href="/static/css/styles.css" type="text/css">
+
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="row">
+            <div class="two columns"></div>
+            <div class="ten columns">
+                <h3>Are you sure you want to delete the following course?</h3>
+                <div class="listing">
+                    <div>Course Name: {{course[0]['title']}}</div>
+                    <div>Description: {{course[0]['description']}}</div>
+                    <a href="/"><buton class="button">No</buton></a>
+                    <a href="delete/{{course[0]['id']}}"><button class="button alert">Yes! I want to delete this</button></a>
+                </div>
+            </div>
+        </div>
+        <div class="two columns"></div>
+    </div>
+</body>
+</html>
