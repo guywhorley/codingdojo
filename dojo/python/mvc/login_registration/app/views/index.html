@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="description" content="login and registration mvc">
+    <meta name="keywords" content="_KW1_, _KW2_, _KW3_">
+    <meta name="author" content="Guy Whorley">
+
+    <title>Login</title>
+
+    <!-- Mobile Specific Meta for Skeleton -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Styles, Icons -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="stylesheet" href="/static/css/styles.css" type="text/css">
+
+</head>
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="twelve columns"><a href="/register">Register!</a></div>
+        </div>
+        <div class="row">
+            <div class="two columns"></div>
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            {% for message in messages %}
+            <p id="msg" class="alert eight columns">{{message}}</p>
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
+            <div class="two columns"></div>
+        </div>
+        <div class="row">
+            <div class="three columns"></div>
+            <div class="six columns">
+                <h4>Login</h4>
+                <form action="/process_login" method="post">
+                    <input class="login-inp" type="text" name="email" placeholder="Email address" />
+                    <input class="login-inp" type="password" name="password" placeholder="Password"  />
+                    <input type="submit" class="button-primary" name="submit" value="Login" />
+                </form>
+            </div>
+            <div class="three columns"></div>
+        </div>
+    </div>
+
+</body>
+</html>

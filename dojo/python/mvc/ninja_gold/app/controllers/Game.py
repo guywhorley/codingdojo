@@ -59,7 +59,4 @@ class Game(Controller):
         gold += updateAmount
         session['gold'] = gold
 
-
         return redirect('/')
-
-        return "<p>You've reached the processing-gold handler</p>"

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="description" content="login and registration mvc">
+    <meta name="keywords" content="_KW1_, _KW2_, _KW3_">
+    <meta name="author" content="Guy Whorley">
+
+    <title>Register New User</title>
+
+    <!-- Mobile Specific Meta for Skeleton -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Styles, Icons -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="stylesheet" href="/static/css/styles.css" type="text/css">
+
+</head>
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="twelve columns"><a href="/">Login!</a></div>
+        </div>
+        <div class="row">
+            <div class="two columns"></div>
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            {% for message in messages %}
+            <p id="msg" class="alert eight columns">{{message}}</p>
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
+            <div class="two columns"></div>
+        </div>
+        <div class="row">
+            <div class="two columns"></div>
+            <div class="eight columns">
+                <h4>Registration</h4>
+                <form action="/process_registration" method="post">
+                    <input type="text" name="fn" placeholder="First Name" />
+                    <input type="text" name="ln" placeholder="Last Name"  />
+                    <input type="email" name="email" placeholder="Email Address"  />
+                    <input type="password" name="password" placeholder="Password"  />
+                    <input type="password" name="cpassword" placeholder="Confirm Password"  />
+                    <input class="button-primary" type="submit" name="submit" value="Register" />
+                </form>
+            </div>
+            <div class="two columns"></div>
+        </div>
+    </div>
+
+</body>
+</html>

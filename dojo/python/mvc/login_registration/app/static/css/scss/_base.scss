@@ -1,0 +1,22 @@
+/*
+ *  Filename: base.scss
+ *  Author: Guy Whorley
+ *  Notes:
+ *   1. THe variables.scss contains required variables needed for base.scss.
+ *   2. For the import order, see styles.scss.
+ */
+
+body { font-family: $font-main; color: $black; }
+.container {
+    form input {
+        padding: 5px;
+        margin: 3px 0;
+        width: 60%;
+    }
+    .button-primary {
+        padding: 0;
+        height: 40px;
+     }
+    a { float: right; }
+    .alert { color: $red; }
+}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="description" content="login and registration mvc">
+    <meta name="keywords" content="_KW1_, _KW2_, _KW3_">
+    <meta name="author" content="Guy Whorley">
+
+    <title>Login and Registration</title>
+
+    <!-- Mobile Specific Meta for Skeleton -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Styles, Icons -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="stylesheet" href="/static/css/styles.css" type="text/css">
+
+</head>
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="twelve columns"><a href="/logout">Logout!</a></div>
+        </div>
+        <div class="row">
+            <div class="eight columns">
+                <h4>Success! Welcome, {{user['first_name']}}!</h4>
+                <p>Successfully registered (or logged in)!</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
