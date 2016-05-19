@@ -1,0 +1,13 @@
+/*
+ *  Filename: base.scss
+ *  Author: Guy Whorley
+ *  Notes:
+ *   1. THe variables.scss contains required variables needed for base.scss.
+ *   2. For the import order, see styles.scss.
+ */
+
+body { font-family: $font-main; color: $black; }
+
+.container {
+    
+}
