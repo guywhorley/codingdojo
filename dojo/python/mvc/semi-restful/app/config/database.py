@@ -1,7 +1,3 @@
-"""
-    Database Specific Configuration File
-"""
-""" Put Generic Database Configurations here """
 import os
 
 class DBConfig(object):
@@ -14,7 +10,7 @@ class DBConfig(object):
 class DevelopmentDBConfig(DBConfig):
     DB_USERNAME = 'root'
     DB_PASSWORD = 'root'
-    DB_DATABASE_NAME = 'tamriel'
+    DB_DATABASE_NAME = 'productsdb'
     DB_HOST = 'localhost'
     DB_PORT = 3306
     """ unix_socket is used for connecting with MAMP. Take this out if you aren't using MAMP """
@@ -26,12 +22,12 @@ class DevelopmentDBConfig(DBConfig):
 class StagingDBConfig(DBConfig):
     DB_USERNAME = 'root'
     DB_PASSWORD = 'root'
-    DB_DATABASE_NAME = 'tamriel'
+    DB_DATABASE_NAME = 'productsdb'
     DB_HOST = 'localhost'
 
 """ Put Production Specific Configurations here """
 class ProductionDBConfig(DBConfig):
     DB_USERNAME = 'root'
     DB_PASSWORD = 'root'
-    DB_DATABASE_NAME = 'tamriel'
+    DB_DATABASE_NAME = 'productsdb'
     DB_HOST = 'localhost'

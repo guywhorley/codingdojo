@@ -11,23 +11,82 @@ class Product(Model):
         logging.debug("init_model:begin")
         super(Product, self).__init__()
 
-
-    def create(self):
+    def create(self, form):
+        """ Create a product """
         logging.debug("model: create()")
+        errors = []
 
-    def read_one(self):
+        query = "INSERT INTO products ( name, description, price, created_at, updated_at ) VALUES ( :name, :description, :price, NOW(), NOW())"
+        data = {
+            'name' : form['name'],
+            'description' : form['description'],
+            'price' : form['price']
+        }
+        records = self.db.query_db(query,data)
+
+        if not records:
+            errors.append("Error inserting product: {}".format(form))
+            return { 'status' : False, 'errors' : errors }
+        return { 'status' : True, 'records' : records }
+
+    def read_one(self, id):
+        """ Return one product record matching on id """
         logging.debug("model: read_one()")
+        errors = []
+
+        query = "SELECT * FROM products WHERE id = :id LIMIT 1"
+        data = {
+            'id' : id
+        }
+        records = self.db.query_db(query, data)
+        if not records:
+            errors.append('Product not found by id {}'.format(id))
+            return { 'status': False, 'errors' : errors }
+        return { 'status' : True, 'data' : records[0] }
 
     def read_all(self):
+        """ Return a list of all product records """
         logging.debug("model: read_all()")
+        errors = []
 
-    def update(self):
+        query = "SELECT * FROM products ORDER BY name ASC"
+        data = {}
+        records = self.db.query_db(query, data)
+
+        if not records:
+            errors.append("Problem retrieving product records!?")
+            return { 'status' : False, 'errors' : errors }
+        return { 'status': True, 'data': records }
+
+    def update(self, form):
         logging.debug("model: update()")
+        errors = []
 
-    def delete(self):
+        query = "UPDATE products SET name = :name, description = :description, price = :price, created_at = NOW(), updated_at = NOW() WHERE id = :id"
+        data = {
+            'name' : form['name'],
+            'description' : form['description'],
+            'price' : form['price'],
+            'id' : form['product-id']
+
+            }
+        records = self.db.query_db(query, data)
+        return { 'status' : True, 'records' : records }
+
+
+    def delete(self, id):
         logging.debug("model: delete()")
+        errors = []
 
+        query = "DELETE FROM products WHERE id = :id"
+        data = {
+            'id' : id
+        }
+        records = self.db.query_db(query, data)
+        logging.warning("delete return: {}".format(records))
 
+        # TODO add return logic for success / failure
+        return { 'status' : True, 'records' : records }
 
     # def create_new(self, info):
     #     """ Add user to users table """

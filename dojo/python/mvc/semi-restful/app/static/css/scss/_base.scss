@@ -9,5 +9,17 @@
 body { font-family: $font-main; color: $black; }
 
 .container {
-    
+    ul li {
+        padding: 0 3px;
+        margin-top: 30px;
+        vertical-align: center;
+        display: inline-block;
+    }
+    input {
+        margin: 5px 0;
+        padding: 3px 5px;
+        width: 80%;
+    }
+    td, th { width: 300px; }
+    .btn-remove { width: 70px; }
 }

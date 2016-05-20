@@ -21,30 +21,57 @@
 
     <div class="container">
         <div class="row">
-            <div class="twelve columns"><a href="/register">Register!</a></div>
-        </div>
-        <div class="row">
             <div class="two columns"></div>
             {% with messages = get_flashed_messages() %}
             {% if messages %}
             {% for message in messages %}
-            <p id="msg" class="alert eight columns">{{message}}</p>
+            <p class="alert eight columns">{{message |safe}}</p>
             {% endfor %}
             {% endif %}
             {% endwith %}
             <div class="two columns"></div>
         </div>
         <div class="row">
-            <div class="three columns"></div>
-            <div class="six columns">
-                <h4>Products</h4>
-                <form action="/process_login" method="post">
-                    <input class="login-inp" type="text" name="email" placeholder="Email address" />
-                    <input class="login-inp" type="password" name="password" placeholder="Password"  />
-                    <input type="submit" class="button-primary" name="submit" value="Login" />
-                </form>
+            <!-- <div class="one column"></div> -->
+            <div class="twelve columns">
+                <h4>All Products</h4>
+                <table>
+                    <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Price</th>
+                        <th>Actions</th>
+                    </tr>
+                    {% if products %}
+                    {% for product in products %}
+                    <tr>
+                        <td>{{ product['name'] }}</td>
+                        <td>{{ product['description'] }}</td>
+                        <td>${{ product['price'] }}</td>
+                        <td>
+                            <ul>
+                                <li><a href="/show/{{ product['id'] }}">Show</a></li>
+                                <li>|</li>
+                                <li><a href="/edit/{{ product['id'] }}">Edit</a></li>
+                                <li>|</li>
+                                <li>
+                                    <form action="/destroy" method="post">
+                                        <input type="hidden" value="{{ product['id'] }}" name="product-id" />
+                                        <input class="btn-remove" type="submit" value="Remove" />
+                                    </form>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    {% endif %}
+                </table>
+                <ul>
+                    <li><a href="/create">Add a new product</a></li>
+                </ul>
+
             </div>
-            <div class="three columns"></div>
+            <!-- <div class="one column"></div> -->
         </div>
     </div>
 
