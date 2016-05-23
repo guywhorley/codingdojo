@@ -9,6 +9,9 @@ class Quotes(Controller):
         self.db = self._app.db
 
     def index(self):
+        all_quotes = None
+        all_favs = None
+        
         if 'id' not in session:
             return self.load_view('login-regis.html')
 

@@ -118,7 +118,7 @@ class Quote(Model):
         errors = []
 
         # query = "SELECT quotes.posted_by, quotes.id, quotes.quote, quotes.author, users.alias FROM quotes q LEFT OUTER JOIN favorites f ON q.id = f.quote_id LEFT JOIN users ON users.id = favorites.user_id where favorites.id IS NULL or favorites.user_id = :id"
-        query = "SELECT q.posted_by, q.id, q.quote, q.author, u.alias from quotes q LEFT OUTER JOIN favorites f ON q.id = f.quote_id LEFT JOIN users u ON f.user_id = u.id WHERE f.user_id IS NULL OR f.user_id != :id"
+        query = "SELECT DISTINCT q.posted_by, q.id, q.quote, q.author, u.alias from quotes q LEFT OUTER JOIN favorites f ON q.id = f.quote_id LEFT JOIN users u ON f.user_id = u.id WHERE f.user_id IS NULL OR f.user_id != :id"
         data = { 'id' : id  }
 
         records = self.db.query_db(query, data)

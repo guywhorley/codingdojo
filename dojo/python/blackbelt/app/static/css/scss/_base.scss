@@ -8,6 +8,7 @@
 
 body { font-family: $font-main; color: $black; min-height: 800px; max-height: 800px;}
 .a-top { float: right; }
+.login-regis { margin-top: 5%; }
 .container {
     .author { color: $red; font-size: 1.3em; }
     .quote { margin-left: 20px; font-size: 1.5em; }
@@ -22,7 +23,7 @@ body { font-family: $font-main; color: $black; min-height: 800px; max-height: 80
         q { font-size: 1.2em; text-indent: 10%; }
         cite { margin-left: 20px; }
         h6, cite, a, { display: inline-block; }
-        h6 { margin: 15px 0 0 15%; }
+        h6 { margin: 15px 0 0 15px; }
         button {
             margin-left: 10px;
             padding: 0 10px;

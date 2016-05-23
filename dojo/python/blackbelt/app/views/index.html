@@ -50,7 +50,7 @@
                     <q>{{ quote['quote'] }}</q><br />
                     <cite>- {{ quote['author']}}</cite>
                     <h6>Posted by: <a href="/user/{{ quote['posted_by'] }}">{{ quote['posted_by'] }}</a></h6>
-                    <a href="/add_favorite_quote/{{ session['id'] }}/{{ quote['id'] }}"><button>Add to My List</button></a>
+                    <a href="/add_favorite_quote/{{ session['id'] }}/{{ quote['id'] }}"><button>Add to 'Favs'</button></a>
                 </div>
                 {% endfor %}
                 {% endif %}
@@ -66,7 +66,7 @@
                         <q>{{ fav['quote'] }}</q><br />
                         <cite>- {{ fav['author']}}</cite>
                         <h6>Posted by: <a href="/user/{{ fav['posted_by'] }}">{{ fav['posted_by'] }}</a></h6>
-                        <a href="/remove_favorite_quote/{{ session['id'] }}/{{ fav['quote_id'] }}"><button>Remove From My List</button></a>
+                        <a href="/remove_favorite_quote/{{ session['id'] }}/{{ fav['quote_id'] }}"><button>Remove</button></a>
                     </div>
 
                     {% endfor %}

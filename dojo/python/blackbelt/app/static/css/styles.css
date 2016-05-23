@@ -893,6 +893,9 @@ body {
 .a-top {
   float: right; }
 
+.login-regis {
+  margin-top: 5%; }
+
 .container .author {
   color: red;
   font-size: 1.3em; }
@@ -918,7 +921,7 @@ body {
   .container #non-fav h6, .container #non-fav cite, .container #non-fav a, .container #favs h6, .container #favs cite, .container #favs a {
     display: inline-block; }
   .container #non-fav h6, .container #favs h6 {
-    margin: 15px 0 0 15%; }
+    margin: 15px 0 0 15px; }
   .container #non-fav button, .container #favs button {
     margin-left: 10px;
     padding: 0 10px;
