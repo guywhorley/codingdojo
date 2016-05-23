@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="description" content="Semi-restful pylot mvc">
+    <meta name="keywords" content="_KW1_, _KW2_, _KW3_">
+    <meta name="author" content="Guy Whorley">
+
+    <title>Posts</title>
+
+    <!-- Mobile Specific Meta for Skeleton -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Styles, Icons -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="stylesheet" href="/static/css/styles.css" type="text/css">
+
+</head>
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="twelve columns">
+                <ul class="a-top">
+                    <li><a href="/">Dashboard</a></li>
+                    <li><a href="/logout">Logout!</a></li>
+                </ul>
+        </div>
+        <div class="row">
+            <div class="two columns"></div>
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            {% for message in messages %}
+            <p class="alert eight columns">{{message |safe}}</p>
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
+            <div class="two columns"></div>
+        </div>
+
+        <div class="row">
+            <h1 class="twelve columns">Quotes Added By <q>{{ poster['alias'] }}</q></h1>
+            <h3>Count: <small>{{ count }}</small></h3>
+            <hr/>
+
+        </hr/>
+        </div>
+
+        <div class="row">
+            {% if posts %}
+            {% for post in posts %}
+            <p>
+                <span class="quote"><q>{{ post['quote'] }}</q></span>
+                - <span class="author"><cite>{{ post['author']}}</cite></span>
+            </p>
+            {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="description" content="login and registration mvc">
+    <meta name="keywords" content="_KW1_, _KW2_, _KW3_">
+    <meta name="author" content="Guy Whorley">
+
+    <title>Welcome!</title>
+
+    <!-- Mobile Specific Meta for Skeleton -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Styles, Icons -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="stylesheet" href="/static/css/styles.css" type="text/css">
+
+</head>
+<body>
+
+    <div class="container">
+        <div class="row">
+
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            {% for message in messages %}
+            <p id="msg" class="alert eight columns">{{message}}</p>
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
+
+        </div>
+        <div class="row">
+            <div class="six columns">
+                <h4>Register</h4>
+                <form action="/process_registration" method="post">
+                    <input type="text" name="name" placeholder="Name" />
+                    <input type="text" name="alias" placeholder="User Alias"  />
+                    <input type="email" name="email" placeholder="Email Address"  />
+                    <input type="password" name="password" placeholder="Password"  />
+                    <input type="password" name="cpassword" placeholder="Confirm Password"  />
+                    <div class="input-label">Date of Birth</div>
+                    <input type="date" name="dob" />
+                    <input class="button-primary" type="submit" name="submit" value="Register" />
+                </form>
+            </div>
+            <div class="six columns">
+                <h4>Login</h4>
+                <form action="/process_login" method="post">
+                    <input type="email" name="email" placeholder="Email Address"  />
+                    <input type="password" name="password" placeholder="Password"  />
+                    <input class="button-primary" type="submit" name="submit" value="Login" />
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

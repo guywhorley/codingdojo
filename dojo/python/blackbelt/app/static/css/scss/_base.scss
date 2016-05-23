@@ -1,0 +1,48 @@
+/*
+ *  Filename: base.scss
+ *  Author: Guy Whorley
+ *  Notes:
+ *   1. THe variables.scss contains required variables needed for base.scss.
+ *   2. For the import order, see styles.scss.
+ */
+
+body { font-family: $font-main; color: $black; min-height: 800px; max-height: 800px;}
+.a-top { float: right; }
+.container {
+    .author { color: $red; font-size: 1.3em; }
+    .quote { margin-left: 20px; font-size: 1.5em; }
+
+    .non-fav-quotes { height: 600px; overflow-y: scroll; }
+    #contrib-quote { position: fixed; bottom: 5%; }
+    #non-fav, #favs {
+        margin: 15px 0px;
+        border-left: 7px solid #ccc;
+        padding: 0.5em 10px;
+        quotes: "\201C""\201D""\2018""\2019";
+        q { font-size: 1.2em; text-indent: 10%; }
+        cite { margin-left: 20px; }
+        h6, cite, a, { display: inline-block; }
+        h6 { margin: 15px 0 0 15%; }
+        button {
+            margin-left: 10px;
+            padding: 0 10px;
+            height: 20px;
+            font-size: .8em;
+        }
+    }
+    .fav-quotes { height: 400px; overflow-y: scroll; }
+    h1 { font-size: 3em; }
+    .alert { margin-top: 20px; padding: 15px; color: $red; }
+    ul li {
+        padding: 0 3px;
+        margin-top: 30px;
+        vertical-align: center;
+        display: inline-block;
+    }
+    input, textarea {
+        margin: 5px 0;
+        padding: 3px 5px;
+        width: 80%;
+    }
+    form.add-remove { width: 60px; }
+}

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="description" content="blackbelt python stack">
+    <meta name="keywords" content="_KW1_, _KW2_, _KW3_">
+    <meta name="author" content="Guy Whorley">
+
+    <title>Quotes Dashboard</title>
+
+    <!-- Mobile Specific Meta for Skeleton -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Styles, Icons -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="stylesheet" href="/static/css/styles.css" type="text/css">
+
+</head>
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="twelve columns"><a class="a-top" href="/logout">Logout!</a></div>
+        </div>
+
+        <div class="row">
+
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            {% for message in messages %}
+            <p class="alert twelve columns">{{message |safe}}</p>
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
+
+        </div>
+        <div id="top" class="row">
+            <div class="twelve column"><h1>Hello <q>{{ session['useralias'] }}</q></h1></div>
+        </div>
+        <div class="row">
+            <h4 class="six columns">Quotable Quotes</h4><h4 class="six columns">Your Favorites</h4>
+        </div>
+        <div class="row">
+            <div class="non-fav-quotes six columns">
+
+                {% if all_quotes %}
+                {% for quote in all_quotes %}
+                <div id="non-fav">
+                    <q>{{ quote['quote'] }}</q><br />
+                    <cite>- {{ quote['author']}}</cite>
+                    <h6>Posted by: <a href="/user/{{ quote['posted_by'] }}">{{ quote['posted_by'] }}</a></h6>
+                    <a href="/add_favorite_quote/{{ session['id'] }}/{{ quote['id'] }}"><button>Add to My List</button></a>
+                </div>
+                {% endfor %}
+                {% endif %}
+
+            </div>
+            <div class="fav-quotes six columns">
+                <row class="fav-quotes-top">
+
+                    {% if all_favs %}
+                    {% for fav in all_favs %}
+
+                    <div id="favs">
+                        <q>{{ fav['quote'] }}</q><br />
+                        <cite>- {{ fav['author']}}</cite>
+                        <h6>Posted by: <a href="/user/{{ fav['posted_by'] }}">{{ fav['posted_by'] }}</a></h6>
+                        <a href="/remove_favorite_quote/{{ session['id'] }}/{{ fav['quote_id'] }}"><button>Remove From My List</button></a>
+                    </div>
+
+                    {% endfor %}
+                    {% endif %}
+
+                </row>
+                <row id="contrib-quote">
+                    <div><h4>Contribute A Quote...</h4></div>
+                    <form action="/process_add_quote" method="post">
+                        <input type="text" name="author" placeholder="Quoted By"  />
+                        <textarea name="quote" placeholder="Quote"></textarea>
+                        <input class="button-primary" type="submit" name="submit" value="Submit" />
+                    </form>
+                </row>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
