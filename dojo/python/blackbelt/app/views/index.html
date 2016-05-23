@@ -35,14 +35,15 @@
             {% endwith %}
 
         </div>
+
         <div id="top" class="row">
             <div class="twelve column"><h1>Hello <q>{{ session['useralias'] }}</q></h1></div>
         </div>
+
         <div class="row">
-            <h4 class="six columns">Quotable Quotes</h4><h4 class="six columns">Your Favorites</h4>
-        </div>
-        <div class="row">
+
             <div class="non-fav-quotes six columns">
+                <h4>Quotable Quotes</h4>
 
                 {% if all_quotes %}
                 {% for quote in all_quotes %}
@@ -57,7 +58,9 @@
 
             </div>
             <div class="fav-quotes six columns">
+                
                 <row class="fav-quotes-top">
+                    <h4>Your Favorites</h4>
 
                     {% if all_favs %}
                     {% for fav in all_favs %}

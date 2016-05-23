@@ -902,12 +902,9 @@ body {
 .container .quote {
   margin-left: 20px;
   font-size: 1.5em; }
-.container .non-fav-quotes {
-  height: 600px;
-  overflow-y: scroll; }
-.container #contrib-quote {
-  position: fixed;
-  bottom: 5%; }
+.container .non-fav-quotes, .container .fav-quotes {
+  overflow-y: scroll;
+  height: 700px; }
 .container #non-fav, .container #favs {
   margin: 15px 0px;
   border-left: 7px solid #ccc;
@@ -927,9 +924,6 @@ body {
     padding: 0 10px;
     height: 20px;
     font-size: .8em; }
-.container .fav-quotes {
-  height: 400px;
-  overflow-y: scroll; }
 .container h1 {
   font-size: 3em; }
 .container .alert {

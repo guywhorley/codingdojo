@@ -33,6 +33,14 @@
         </div>
         <div class="row">
             <div class="six columns">
+                <h4>Login</h4>
+                <form action="/process_login" method="post">
+                    <input type="email" name="email" placeholder="Email Address"  />
+                    <input type="password" name="password" placeholder="Password"  />
+                    <input class="button-primary" type="submit" name="submit" value="Login" />
+                </form>
+            </div>
+        <div class="six columns">
                 <h4>Register</h4>
                 <form action="/process_registration" method="post">
                     <input type="text" name="name" placeholder="Name" />
@@ -45,14 +53,7 @@
                     <input class="button-primary" type="submit" name="submit" value="Register" />
                 </form>
             </div>
-            <div class="six columns">
-                <h4>Login</h4>
-                <form action="/process_login" method="post">
-                    <input type="email" name="email" placeholder="Email Address"  />
-                    <input type="password" name="password" placeholder="Password"  />
-                    <input class="button-primary" type="submit" name="submit" value="Login" />
-                </form>
-            </div>
+
         </div>
     </div>
 
