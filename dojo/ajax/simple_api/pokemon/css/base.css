@@ -1,0 +1,14 @@
+body { font-family: 'Pacifico', cursive; }
+h2 { margin-top: 30px; }
+img {
+    border: 1px solid black;
+    height: 100px;
+    width: 100px;
+    box-shadow: 2px 2px 3px black;
+    margin: 10px;
+    border-radius: 5px;
+}
+#pokemon, #poke-data {
+    height: 500px;
+    overflow-y: scroll;
+}

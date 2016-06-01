@@ -1,0 +1,17 @@
+Author: Guy Whorley
+Name: Poke-images
+Date: 05/31/2016
+Desc: Display a list of pokemon images from deck #1. Click an image and request more information.
+
+1.  Set Counter <-- 1
+2.  While Counter <= 155
+3.      get pokemon image
+4.      In jquery: build image, attach event, create img, set attribute equal to Counter
+          and attach to dom
+5.      Increment counter
+6.  Endwhile
+7.  On <img> click, get pokemon data
+8.  Iterate over pokemon response data
+9.      build up html,
+10. EndIterate
+11. send html to <div>

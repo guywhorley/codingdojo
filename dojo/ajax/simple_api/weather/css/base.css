@@ -1,0 +1,26 @@
+body {
+    margin-top: 20px;
+}
+
+ul li {
+    list-style-type: none;
+}
+button.button-primary {
+    width: 250px;
+    background-color: #e86e17;
+    border-color: #e86e17;
+    color: white;
+    font-weight: 700;
+}
+button.button-primary:hover {
+    background-color: orange;
+    border-color: orange;
+    color: white;
+    font-weight: 700;
+}
+
+input {
+    border-color: orange;
+    width: 250px;
+
+}
