@@ -1,0 +1,17 @@
+/*
+ *  Filename: base.scss
+ *  Author: Guy Whorley
+ *  Notes:
+ *   1. THe variables.scss contains required variables needed for base.scss.
+ *   2. For the import order, see styles.scss.
+ */
+
+body {
+    font-family: $font-main;
+    color: $black;
+    margin-top: 20px;
+}
+
+h4 { margin: 20px 0 5px 0; }
+#quotes { margin: 20px 0; height: 400px; overflow-y: scroll; font-size: 0.9em; }
+.fa-comment { margin: 0 20px; color: green; font-size: 0.8em;  }
