@@ -1,0 +1,30 @@
+/*
+ *  Filename: base.scss
+ *  Author: Guy Whorley
+ *  Notes:
+ *   1. THe variables.scss contains required variables needed for base.scss.
+ *   2. For the import order, see styles.scss.
+ */
+
+body {
+    font-family: $font-main;
+    color: $black;
+    margin-top: 20px;
+}
+
+h4 { margin: 20px 0 5px 0; }
+
+.post-it {
+    display: inline-block;
+    vertical-align: top;
+
+    border: 1px solid yellow;
+    box-shadow: 5px 5px 3px black;
+    width: 150px;
+    margin: 10px;
+    height: 100px;
+    font-size: 0.8em;
+    padding: 10px;
+    background-color: yellow;
+    border-radius: 5px;
+}
