@@ -1,17 +1,23 @@
 # Example of Class Inheritance
 
-class Animal
+class Mammal
 
     attr_accessor :alive
 
     def initialize
+        @health = 150
         @alive = true
-        puts "I'm alive!"
         self
     end #def
 
     def breathe
         puts "Inhale and exhale"
-        self # Ruby returns the last evaluated statement thus the 'return' keyword is not neccessary
+        self
     end
+
+    def displayHealth
+        puts "Health: #{@health}"
+        self
+    end
+
 end #class
