@@ -7,7 +7,7 @@ class Human
     attr_reader :name, :strength, :intelligence, :stealth, :health, :isAlive
 
     # Public: create a human.
-    # strength - physicall prowess [integer]
+    # strength - physical prowess [integer]
     # intelligence - mental capacity [integer]
     # stealth - sneaking ability [integer]
     # health - life force [integer]
