@@ -13,7 +13,7 @@ class BankAccount
     # checkingBalance - the beginning balance for the checking account.
     # savingsBalance - the beginning balance for the savings account.
     # rate - interest rate for savings account.
-    def initialize(checkingBalance, savingsBalance, rate=1.9)
+    def initialize(checkingBalance, savingsBalance, rate=0.5)
         @checkingBalance = preventNegativeAmount(checkingBalance)
         @savingsBalance = preventNegativeAmount(savingsBalance)
         @interestRate = preventNegativeAmount(rate)
