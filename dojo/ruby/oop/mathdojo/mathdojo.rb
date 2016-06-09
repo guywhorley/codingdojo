@@ -4,23 +4,43 @@
 
 class MathDojo
 
+    attr_accessor :total
+
     def initialize
-        #doop
+        @total = 0
         self
     end
 
     # add operands
-    def add(arr)
-        
-
+    def add(x=0, y=0)
+        @total += (x+y)
         self
-    end #def
+    end
 
     # return the difference between the subtrahend and the minuend
-    def subtract(arr)
-
+    def subtract(x=0, y=0)
+        @total -= (x + y)
         self
-    end #def
+    end
 
+    # show result
+    def result
+        return @total
+        self
+    end
+
+    private
+
+        def clearTotal
+            @total = 0
+            self
+        end
 
 end #class
+
+# TEST
+
+md = MathDojo.new
+
+result = md.add(2).add(7,4).subtract(3,2).result
+puts result

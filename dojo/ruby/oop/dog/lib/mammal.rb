@@ -10,6 +10,8 @@ class Mammal
         self
     end #def
 
+
+
     def breathe
         puts "Inhale and exhale"
         self
@@ -17,7 +19,7 @@ class Mammal
 
     def displayHealth
         puts "Health: #{@health}"
-        self
+        return @health
     end
 
 end #class

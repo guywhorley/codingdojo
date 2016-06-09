@@ -2,9 +2,11 @@
 # auth: Guy Whorley
 # desc: Dog class
 
-require_relative 'Mammal'
+require_relative 'Mammal',
 
 class Dog < Mammal
+
+    attr_accessor :health
 
     def pet
         @health += 5
@@ -25,9 +27,3 @@ class Dog < Mammal
     end
 
 end #class
-
-# TEST
-
-Moka = Dog.new
-Moka.displayHealth
-Moka.walk.walk.walk.run.run.pet.displayHealth

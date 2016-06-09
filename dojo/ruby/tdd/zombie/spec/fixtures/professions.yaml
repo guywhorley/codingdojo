@@ -1,0 +1,11 @@
+bob_profession:
+    job: policeman
+    infected: bob
+
+larry_profession:
+    job: reporter
+    infected: larry
+
+fan_profession:
+    job: mother
+    infected: fran

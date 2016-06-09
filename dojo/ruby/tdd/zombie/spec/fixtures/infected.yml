@@ -1,0 +1,15 @@
+bob:
+    name: Bob Taylor
+    city: Chicago
+    state: IL
+    country: USA
+larry:
+    name: Larry Wall
+    city: Seattle
+    state: WA
+    country: USA
+fran:
+    name: Fran Geiger
+    city: Portland
+    state: OR
+    country: USA
