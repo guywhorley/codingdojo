@@ -1,0 +1,56 @@
+1.CREATE RAILS PROJECT:
+
+rails new dojo_ninja_project
+
+2. DEFINE A USER MODEL
+
+<PROJ_ROOT> rails g model Dojo name:string city:string state:string
+<PROJ_ROOT> rails g model Ninja first_name:string last_name:string dojo:references
+<PROJ_ROOT> rake db:create
+<PROJ_ROOT> rake db:migrate
+
+3. UPDATED GEMFILE TO INCLUDE 'HIRB'
+
+gem 'Hirb'  | save and exit.
+<PROJ_ROOT>bundle install
+
+4. OPEN RAILS CONSOLE AND ENABLE HIRB
+
+Open Ruby Console
+<PROJ_ROOT>rails c OR rails console
+
+enable hirb
+Hirb.enable
+
+5. CREATE DOJO
+
+d1 = Dojo.create(name:'CodingDojo', city:'Seattle', state:'WA')
+d2 = Dojo.create(name:'CodingDojo', city:'Burien',  state:'WA')
+d3 = Dojo.create(name:'CodingDojo', city:'Tukwila', state:'WA')
+
+Ninja.create(Dojo_id:d1, first_name:'aa', last_name:'aa')
+Ninja.create(Dojo_id:d1, first_name:'bb', last_name:'bb')
+Ninja.create(Dojo_id:d1, first_name:'cc', last_name:'bb')
+
+6. QUERY SETS
+
+All Dojos:  Dojo.all
+
+All Ninjas: Ninja.all
+
+Show All Ninjas for a given dojo:
+    Ninja.where(Dojo_id: 4)
+
+Destroy All Ninjas for a given dojo:
+    Ninja.destroy_all(Dojo_id:5)
+
+To Automatically delete any Ninja's belonging to a deleted Dojo upon
+Dojo destruction:
+
+    set Dojo.rb relationshop to have :dependent => :destroy
+    then issue:
+    Dojo.find(6).destroy #all associated Ninja's will be deleted as well.
+
+Get the first names of the ninjas that belong to a particular Dojo, order by fn desc
+
+Ninja.where(Dojo_id: 4).order(first_name: :desc)
