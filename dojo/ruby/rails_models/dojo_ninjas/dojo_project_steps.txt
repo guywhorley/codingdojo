@@ -19,7 +19,6 @@ gem 'Hirb'  | save and exit.
 Open Ruby Console
 <PROJ_ROOT>rails c OR rails console
 
-enable hirb
 Hirb.enable
 
 5. CREATE DOJO

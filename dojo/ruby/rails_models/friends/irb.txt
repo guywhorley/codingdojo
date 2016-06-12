@@ -1,0 +1,5 @@
+1. User.first
+
+2. User.first.friends
+
+3. Don't know. Can't figure it out :(

@@ -1,0 +1,13 @@
+
+1. DEFINE POLYMORPHIC BASE TABLE
+rails g model Comment name:string:index commentable:references{polymorphic}
+
+2. CREATE TABLE
+rake db:migrate
+
+3. ADD ASSOCIATIONS TO MODELS
+has_many :comments, as:commentable, dependent: :destroy
+
+4.ADD COMMENTS
+In irb: 
+Post.first.comments.create(name:'This is my comment')

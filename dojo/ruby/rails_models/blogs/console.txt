@@ -1,0 +1,45 @@
+
+irb(main):021:0> Post.create(blog_id:b1.id, title:'this is my post5', content:'content abc').errors.full_messages
+
+irb(main):022:0> Post.create(blog_id:b1.id, title:'this is my post6', content:'content abc').errors.full_messages
+
+irb(main):023:0> b1 = Blog.find(4)
+
+irb(main):024:0> Post.create(blog_id:b1.id, title:'this is my post7', content:'content abc').errors.full_messages
+
+irb(main):025:0> Post.create(blog_id:b1.id, title:'this is my post8', content:'content abc').errors.full_messages
+
+irb(main):026:0> Post.all
+
+irb(main):027:0> p = Post.first
+
+rb(main):028:0> Message.create(post_id:p.id, author:'Joe Cool', message:'message1')
+
+irb(main):029:0> Message.create(post_id:p.id, author:'Joe Cool', message:'message2')
+
+irb(main):030:0> Message.create(post_id:p.id, author:'Shroeder', message:'message3')
+
+irb(main):031:0> Message.create(post_id:p.id, author:'Linus', message:'message4')
+
+# Show all posts attached to the first blog
+Post.where(blog_id: 1)
+
+# All posts for the last blog sorted by title in DESC order
+
+Post.where(blog_id: Blog.last.id).order(title: :desc)
+
+# UPDATE FIRST POST'S title
+
+Post.update(Post.first, title:'My updated title for post1')
+
+# DEELETE THE THIRD POST
+
+Post.find(3).destroy
+
+# GET ALL blogs
+
+Blog.all
+
+# GET ALL BLOGS WHERE ID < 5
+
+Blog.where("id < 5")
