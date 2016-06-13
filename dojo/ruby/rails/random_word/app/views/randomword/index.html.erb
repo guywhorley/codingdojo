@@ -1,0 +1,17 @@
+<div class="container top">
+    <div class="row top">
+        Random Word (attempt #<%= @count %>)
+    </div>
+</div>
+
+<div class="container results">
+    <div class="row">
+        <%= @rword %>
+    </div>
+</div>
+
+<div class="gen">
+    <form action="/" method="get">
+        <input type="submit" name="Generate" value="generate" />
+    </form>
+</div>

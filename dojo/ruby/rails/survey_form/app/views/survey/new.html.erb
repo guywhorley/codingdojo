@@ -1,0 +1,23 @@
+
+<div class="container">
+    <div class="row">
+        <div class="two columns"></div>
+        <div class="eight columns">
+            <form action='create' method='post' class="box">
+                <label class="name">Your Name:</label><input type='text' name='name' /><br />
+                <label class="loc">Dojo Location:</label><input type='text' name='location' /><br />
+                <label class="lang">Favorite Language:</label>
+                <input name="authenticity_token" type="hidden" value="token_value">
+                <select name="language">
+                    <option value="javascript">Javascript</option>
+                    <option value="c-sharp">C#</option>
+                    <option value="java">java</option>
+                    <option value="python">python</option>
+                </select><br />
+                <label class="comm">Comment (optional):</label><br />
+                <textarea name="comments" rows="5" cols="50"></textarea><br />
+                <button type="submit" value="button" class="button-primary">Button</button>
+        </div>
+        <div class="two columns"></div>
+    </div>
+</div>

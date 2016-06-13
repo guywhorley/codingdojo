@@ -1,0 +1,23 @@
+<div class="container">
+    <% if flash[:notice] %>
+      <div class="notice"><%= flash[:notice] %></div>
+    <% end %>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="two columns"></div>
+        <div class="eight columns box">
+            <h3>Submitted Information</h3>
+            Name: <%= params['name'] %><br />
+            Dojo Location: <%= params['location'] %><br />
+            Favorite Language: <%= params['language'] %><br />
+            Comment: <%= params['comments'] %>
+            <form action="new" method="get">
+                <input type="submit" class="button-primary" value="Go Back" name="goback" />
+            </form>
+        </div>
+
+        <div class="two columns"></div>
+    </div>
+</div>

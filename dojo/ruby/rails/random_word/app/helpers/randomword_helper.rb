@@ -1,0 +1,2 @@
+module RandomwordHelper
+end
