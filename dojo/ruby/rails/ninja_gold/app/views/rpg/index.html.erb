@@ -1,0 +1,62 @@
+<div class="container">
+    <a href="rpg/playAgain">Reset</a>
+    <div class="row top">
+        Your Gold: <span class="gold"><%= @gold %></span>
+    </div>
+
+    <div class="row">
+        <div class="three columns venue">
+            <span class="title">Farm</span><br />
+            (earns 10-20 gold)
+            <form action="rpg/processTurn" method="get">
+                <input type="hidden" name="venue" value="farm" />
+                <input type="submit" name="findgold" value="Find Gold" />
+            </form>
+        </div>
+        <div class="three columns venue">
+            <span class="title">Cave</span><br />
+            (earns 5-10 gold)
+            <form action="rpg/processTurn" method="get">
+                <input type="hidden" name="venue" value="cave" />
+                <input type="submit" name="findgold" value="Find Gold" />
+            </form>
+        </div>
+        <div class="three columns venue">
+            <span class="title">House</span><br />
+            (earns 2-5 gold)
+            <form action="rpg/processTurn" method="get">
+                <input type="hidden" name="venue" value="house" />
+                <input type="submit" name="findgold" value="Find Gold" />
+            </form>
+        </div>
+        <div class="three columns venue">
+            <span class="title">Casino</span><br />
+            (+- 0-50 gold)
+            <form action="rpg/processTurn" method="get">
+                <input type="hidden" name="venue" value="casino" />
+                <input type="submit" name="findgold" value="Find Gold" />
+            </form>
+        </div>
+    </div>
+
+    <div class="row">
+        <h4>Activities</h4>
+        <div class="twelve columns">
+
+            <% if session[:log] %>
+                <% session[:log].each do |message| %>
+                        <% if message['type'] == "notice" %>
+                        <div class="msg-notice">
+                            <%= message['message'] %>
+                        </div>
+                    <% elsif message['type'] == "alert" %>
+                       <div class="msg-alert">
+                            <%= message["message"] %>
+                        </div>
+                    <%end%>
+
+                <%end%>
+            <%end%>
+        </div>
+    </div>
+</div>
