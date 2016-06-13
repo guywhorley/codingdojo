@@ -1,0 +1,24 @@
+// Place all the styles related to the Times controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+body {
+
+    .box, .big-box {
+        text-align: center;
+        border: 1px solid black;
+        box-shadow: 3px 3px 2px black;
+        border-radius: 5px;
+        padding: 20px;
+    }
+    .box {
+        font-size: 12pt;
+        width: 300px;
+        margin: 20px auto;
+    }
+    .big-box {
+        font-size: 26pt;
+        width: 500px;
+        margin: 20px auto;
+    }
+}

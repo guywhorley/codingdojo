@@ -1,0 +1,1 @@
+https://github.com/guywhorley/mundus/tree/dojo-week5/dojo/ruby/rails/integrate_models

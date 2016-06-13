@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
     get 'users/new' => 'users#new', as: 'newUser'
     get 'users' => 'users#show', as: 'show'
     get 'users/create' => 'users#new'
