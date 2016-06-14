@@ -1,0 +1,8 @@
+<h1>New Pet</h1>
+
+<form action="/animes" method="post">
+    <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+    <input type="text" name="pet[name]" placeholder="Pet Name" /><br />
+    <input type="submit" name="submit" value="Create Pet" />
+</form>
+<a href="/animes">Back</a>
