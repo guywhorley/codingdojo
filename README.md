@@ -4,7 +4,7 @@ The mundus repo is meant as a repo to house my Various Coding Dojo projects: rub
 The nested folder structure mirrors a directory structure - which is not conducive to project collaboration.
 Any projects requiring collaboration are hosted in their own repositories.
 
-/dojo
-|------ python,pylot,djano: exercises
-|------ ruby/rails: exercises
-|------ mean stack: exercises
+/dojo<br>
+|------ python,pylot,django: exercises<br>
+|------ ruby/rails/tdd/rspec/capybara: exercises<br>
+|------ mean stack: exercises <br>
