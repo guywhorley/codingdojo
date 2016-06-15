@@ -1,8 +1,13 @@
-<h1>You are at login</h1>
+<h1>Login</h1>
+
+<% if flash[:alert] %>
+  <div class="alert"><%= flash[:alert] %></div>
+<% end %>
 
 <form action="" method="post">
-    <input type="text" name="user[last_name]" placeholder="Last Name" /><br />
-    <input type="password" name="user[password]" placeholder="Password" /><br />
+    <input type="text" name="last_name" placeholder="Last Name" autofocus/><br />
+    <input type="password" name="password" placeholder="Password" /><br />
     <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
-    <input type="submit" name="submit" value"Submit or die!" />
+    <input type="submit" name="submit" value"Submit" />
 </form>
+<a href="/wall/register">Register</a>
