@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
 
   # RESTFUL routes
-  get 'animes' => 'animes#index'   # index
-  get 'animes/new' => 'animes#new' # new form
+  get  'animes' => 'animes#index'   # index
+  get  'animes/new' => 'animes#new' # shw the NEW page
   post 'animes' => 'animes#create' # create the anime
-  get  'animes/:id' => 'animes#show' # show details for anime:id
-
+  get  'animes/:id' => 'animes#show' # show the DETAILS for anime:id
+  get  'animes/:id/edit' => 'animes#edit' # show the EDIT page
+  patch 'animes/:id' => 'animes#update' # process the update
+  delete 'animes/:id' => 'animes#destroy' # delete 
 
 
 

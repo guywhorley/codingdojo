@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="row">
+        <% if flash[:error] -%>
+          <p class='error'><%=h flash[:error] %></p>
+        <% end -%>
+        <% if flash[:notice] -%>
+          <p class='notice'><%=h flash[:notice] %></p>
+        <% end -%>
+    </div>
+    <div class="row">
+        <div class="two columns"></div>
+        <div class="eight columns">
+            <h2>New Beer</h2>
+            <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+            <form action="/products" method="post">
+                <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+                <input type="text" class="u-full-width" name="product[name]" placeholder="Beer Name" /><br />
+                <input type="text" class="u-full-width" name="product[description]" placeholder="Beer Description"/><br  />
+                <input type="text" class="u-full-width" name="product[pricing]" placeholder="Per Pallet Price"/><br />
+                <input type="submit" name="submit" value="Add New Beer" class="u-full-width button-primary" />
+            </form>
+            <a href="/products">Back</a>
+        </div>
+        <div class="two columns"></div>
+    </div>
+</div>

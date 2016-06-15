@@ -1,0 +1,14 @@
+<h2>Edit <%= @pet.name%></h2>
+
+<form action="/animes/<%= @pet.id %>" method="post">
+    <input type="text" name="name" value="<%= @pet.name%>"/><br />
+    <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+    <input type="hidden" name="_method" value="patch" />
+    <input type="submit" value="Update Pet" />
+</form>
+<form action="/animes/<%= @pet.id %>" method="post">
+    <input type="hidden" name="_method" value="delete" />
+    <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+    <input type="submit" class="btn-link-gcw"  value="Delete Pet" />
+</form>
+<a href="/animes/<%= @pet.id %>">Back to Show</a>

@@ -19,7 +19,23 @@ class AnimesController < ApplicationController
     def show
         @pet = Pet.find(params[:id])
     end
+    # edit the pet
+    def edit
+        @pet = Pet.find(params[:id])
+    end
 
+    # Update the Pet
+    def update
+        pet = Pet.find(params[:id])
+        pet.name = params[:name]
+        pet.save
+        redirect_to '/animes'
+    end
+
+    def destroy
+        Pet.find(params[:id]).destroy
+        redirect_to '/animes'
+    end
 
     private
        # rails 4.0 requires permission to let certion form field data to

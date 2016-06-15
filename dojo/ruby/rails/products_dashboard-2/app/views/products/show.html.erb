@@ -1,0 +1,19 @@
+<div class="container">
+    <div.class="row">
+        <div class="container">
+            <% if @beer %>
+            <h2>Beer Details</h2>
+            <p>
+                <strong>Name:</strong>
+                <%= @beer.name %><br />
+                <strong>Description:</strong>
+                <%= @beer.description %><br />
+                <strong>Price:</strong>
+                <%= @beer.pricing %><br />
+            </p>
+            <%end%>
+            <a href="/products">Back</a>
+            <a href="/products/<%= @beer.id%>/edit">Edit</a>
+        </div>
+    </div>
+</div>

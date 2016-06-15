@@ -1,0 +1,42 @@
+// Place all the styles related to the Users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+body {
+    padding: 0;
+    margin: 0;
+    font-size: 0.8em;
+    font-family: 'Raleway';
+     ul { padding: 0px; margin: 0px; }
+    .btn-link-gcw {
+      margin: 0;
+      vertical-align: center;
+      text-align: center;
+      border:none;
+      outline:none;
+      background:none;
+      cursor:pointer;
+    //   color:#0000EE;
+      padding:0;
+      text-decoration:underline;
+      //font-family:inherit;
+      //   font-size:inherit;
+    }
+    table {
+        margin-top: 5px;
+        th { background-color: darkgray; color: white; font-weight: 600; }
+        tr:nth-child(even) { background-color: white; }
+        tr:nth-child(odd) { background-color: lightgray;}
+        tr { padding: 0;
+            td { padding-left: 0px; }
+        }
+    }
+    .table {
+        height: 600px;
+        overflow-y: scroll;
+        li { display: inline-block;}
+
+    }
+    a { margin-top: 0px;}
+
+}

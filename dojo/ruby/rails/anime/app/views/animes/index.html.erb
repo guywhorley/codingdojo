@@ -1,5 +1,10 @@
 <h1>All Pets</h1>
 <a href="/animes/new">New</a>
 <% @pets.each do |pet| %>
-    <p><strong>[PET]</strong> <a href="/animes/<%= pet.id %>"><%= pet.name%></a></p>
+    <p>
+        <strong>[PET]</strong>
+        <a href="/animes/<%= pet.id %>"><%= pet.name%></a>
+        
+    </p>
+
 <%end%>
