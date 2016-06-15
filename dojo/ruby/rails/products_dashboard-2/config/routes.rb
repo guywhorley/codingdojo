@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  # PRODUCTS
   get '/products' => 'products#index'
 
   get 'products/new' => 'products#new'
@@ -14,6 +15,8 @@ Rails.application.routes.draw do
 
   delete 'products/:id' => 'products#destroy'
 
+  # COMMENTS
+  get '/comments' => 'comments#index'
 
 
   # The priority is based upon order of creation: first created -> highest priority.
