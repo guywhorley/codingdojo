@@ -44,20 +44,22 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
- 
-# My favorite gems 
-group :development, :test do 
-  gem 'rspec' 
-  gem 'rspec-rails' 
-  gem 'byebug' 
-end 
- 
-# My favorite gems 
-gem 'rails-footnotes' 
+
+# My favorite gems
+group :development, :test do
+  gem 'rspec'
+  gem 'rspec-rails'
+  gem 'byebug'
+  gem 'capybara' # gcw: manually added gcw
+  gem 'selenium-webdriver', '~> 2.53.3' # gcw: manually added
+  gem 'database_cleaner'  # gcw: manually added
+end
+
+# My favorite gems
+gem 'rails-footnotes'
 gem 'google-webfonts-rails', '~> 0.0.4' 
-gem 'skeleton-rails', :git => 'https://github.com/helios-technologies/skeleton-rails' 
-gem 'faker' 
-gem 'hirb' 
-gem 'awesome_print' 
-gem 'forgery', '0.6.0' 
- 
+gem 'skeleton-rails', :git => 'https://github.com/helios-technologies/skeleton-rails'
+gem 'faker'
+gem 'hirb'
+gem 'awesome_print'
+gem 'forgery', '0.6.0'

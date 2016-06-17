@@ -1,0 +1,3 @@
+class DojosController < ApplicationController
+
+end
