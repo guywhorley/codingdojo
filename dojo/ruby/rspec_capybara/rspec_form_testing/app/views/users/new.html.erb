@@ -1,0 +1,32 @@
+<div class="container">
+
+    <div class="row">
+        <% if flash[:error] -%>
+          <p class='error'><%=h flash[:error] %></p>
+        <% end -%>
+        <% if flash[:notice] -%>
+          <p class='notice'><%=h flash[:notice] %></p>
+        <% end -%>
+    </div>
+
+    <div class="row">
+        <div class="two columns"></div>
+        <div class="eight columns">
+            <h2>New User</h2>
+            <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+            <form action="/users/create" method="post">
+                <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+                <input type="text" class="u-full-width" name="first_name" placeholder="First Name" /><br />
+                <input type="text" class="u-full-width" name="last_name" placeholder="Last Name"/><br  />
+                <input type="email" class="u-full-width" name="email" placeholder="Email Address"/><br />
+                <input type="password" class="u-full-width" name="password" placeholder="Password"/><br />
+                <input type="password" class="u-full-width" name="password_confirmation" placeholder="Password Confirmation"/><br />
+                <input type="submit" name="submit" value="Register" class="u-full-width buttom button-primary" />
+            </form>
+        </div>
+        <div class="two columns"></div>
+
+
+    </div>
+
+</div>
