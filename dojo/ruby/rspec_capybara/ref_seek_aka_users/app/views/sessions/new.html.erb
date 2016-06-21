@@ -1,9 +1,4 @@
 <div class="container">
-
-  <% if flash[:error] %>
-    <div class="alert"><%=flash[:error]%></div>
-  <%end%>
-
   <h1 class="eight columns">User Login</h1>
   <form class="eight columns" action="/sessions" method="post">
     <input class="u-full-width" type="text" name="Email" placeholder="Email Address" />
