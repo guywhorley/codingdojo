@@ -12,10 +12,15 @@
   <%end%>
 
   <% if current_user %>
-    <form action='/sessions/<%= current_user.id %>' method='post'>
+    <form class="btn-link" action='/sessions/<%= current_user.id %>' method='post'>
       <input type='hidden' name="authenticity_token" value="<%= form_authenticity_token%>">
       <input type="hidden" name="_method" value="delete" />
-      <input class="btn-link" type="submit" value="Log Out" />
+      <input type="submit" value="Log Out" />
+    </form>
+    <form class="btn-link" action="/users/<%=@user.id%>" method="post">
+      <input type="hidden" name="_method" value="delete" />
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token%>" />
+      <input type="submit" class="button" value="Delete Account" />
     </form>
   <%end%>
 

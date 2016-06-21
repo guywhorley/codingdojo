@@ -19,8 +19,7 @@ RSpec.describe 'creating a user' do
   it 'shows validation errors without proper validation' do
     click_button "Join"
     expect(current_path).to eq('/users/new')
-    expect(page).to have_text("can't be blank")
-    expect(page).to have_text("invalid")
+    expect(page).to have_text("Change values")
   end
 
 end

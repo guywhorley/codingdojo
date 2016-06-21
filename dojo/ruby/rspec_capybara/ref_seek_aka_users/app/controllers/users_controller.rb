@@ -3,7 +3,8 @@ class UsersController < ApplicationController
   def index
     # # :id is passed from session controller in URL, lookup user
     # # and pass into view
-    @user = User.find_by(id: params[:id])
+    # @user = User.find_by(id: params[:id])
+    redirect_to "/show/#{session[:user_id]}"
   end
 
   def show
@@ -25,7 +26,7 @@ class UsersController < ApplicationController
       redirect_to "/users/#{@user.id}"
       return
     end
-    flash[:errors] = @user.errors.full_messages
+    flash[:error] = "Uh oh. Change values and try again!" #@user.errors.full_messages
     redirect_to '/users/new'
   end
 
@@ -40,7 +41,11 @@ class UsersController < ApplicationController
     redirect_to "/users/#{params[:id]}"
   end
 
-
-
+  def destroy
+    puts "destroy: id=#{params[:id]}"
+    User.delete(params[:id].to_i) # MUST CONVERT FROM STRING ON FORM TO INTEGER FOR DELETE METHOD
+    session[:user_id] = nil
+    redirect_to ('/sessions/new')
+  end
 
 end

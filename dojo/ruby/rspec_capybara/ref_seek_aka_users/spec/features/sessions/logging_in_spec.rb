@@ -20,7 +20,7 @@ RSpec.describe 'Logging In' do # :js => true do
 
   it 'does not sign in user if credentials are invalid.' do
     log_in @user, 'wrong password'
-    expect(page).to have_text('Invalid')
+    expect(page).to have_text('failed password authentication')
   end
 
 end
