@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
       auth = @user.authenticate(params[:Password])
       if @user.authenticate(params[:Password])
         # add user id to session
-        session[:id] = @user.id
+        session[:user_id] = @user.id
         redirect_to "/users/#{@user.id}"
         return
       end
@@ -23,5 +23,13 @@ class SessionsController < ApplicationController
     flash[:error] = "Profound apologies sir. Invalid data. Change it up and try again."
     redirect_to "/sessions/new"
   end
+
+  # Logout User by removing :user_id from Session
+  # Redirect to login page
+  def destroy
+    session[:user_id] = nil
+    redirect_to '/sessions/new'
+  end
+
 
 end

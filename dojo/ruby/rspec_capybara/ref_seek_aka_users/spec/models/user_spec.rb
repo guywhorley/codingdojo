@@ -3,7 +3,6 @@ require 'rails_helper'
 
 # These tests work at the model level and run validations.
 
-
 RSpec.describe User, type: :model do
 
   it "requires a name" do
