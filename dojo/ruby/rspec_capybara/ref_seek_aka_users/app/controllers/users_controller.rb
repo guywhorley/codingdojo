@@ -25,10 +25,22 @@ class UsersController < ApplicationController
       redirect_to "/users/#{@user.id}"
       return
     end
-    puts "*"*10
-    puts @user.errors.inspect
     flash[:errors] = @user.errors.full_messages
     redirect_to '/users/new'
   end
+
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    user = User.update(params[:id],:name => params[:name],:email => params[:email],:password => params[:password],:password_confirmation => params[:password_confirmation])
+    puts user.errors.full_messages
+
+    redirect_to "/users/#{params[:id]}"
+  end
+
+
+
 
 end

@@ -8,11 +8,7 @@
 </head>
 <body>
   <% if flash %>
-    <% flash.each do |k, v|%>
-      <% v.each do |msg| %>
-        <p class="alert"><%= msg %></p>
-      <%end%>
-    <%end%>
+    <p class="alert"><%= flash[:error] %></p>
   <%end%>
 
   <% if current_user %>
