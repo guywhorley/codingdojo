@@ -1,0 +1,7 @@
+<h1>Edit Anime <%= @anime.id %></h1>
+<form action="/animes/<%= @anime.id %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token%>">
+  <input type="text" name="name"value="<%=  @anime.name %>" />
+  <input type="hidden" name="_method" value="patch" />
+  <input type="submit" name="submit" value="Update Anime" />
+</form>

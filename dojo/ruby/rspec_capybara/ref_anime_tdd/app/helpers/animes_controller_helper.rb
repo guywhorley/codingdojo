@@ -1,0 +1,2 @@
+module AnimesControllerHelper
+end

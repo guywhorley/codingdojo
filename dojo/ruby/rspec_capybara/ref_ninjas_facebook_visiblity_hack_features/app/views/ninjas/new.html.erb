@@ -1,0 +1,32 @@
+<div class="container">
+
+
+    <div class="row">
+        <div class="two columns"></div>
+            <% if flash %>
+                <ul class="eight columns">
+                    <% flash.each do |key, value| %>
+                        <% value.each do |msg| %>
+                             <li class='error'><%= msg %></li>
+                         <% end %>
+                    <% end -%>
+                </ul>
+            <% end %>
+        <div class="two columns"></div>
+    </div>
+
+    <div class="row">
+        <div class="two columns"></div>
+        <div class="eight columns">
+            <h1>Create Ninja</h1>
+            <form action="/ninjas" method="post">
+                <input class="u-full-width" class="u-full-width" name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+                <input class="u-full-width" type="input" name="ninja_name" placeholder="Ninja Name" />
+                <textarea class="u-full-width" name="ninja_description" placeholder="Ninja Description"></textarea>
+                <input class="u-full-width button-primary" type="submit" name="submit" value="Submit" />
+            </form>
+        </div>
+    <div class="two columns"></div>
+    </div>
+
+</div>

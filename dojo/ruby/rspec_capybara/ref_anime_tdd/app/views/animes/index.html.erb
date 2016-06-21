@@ -1,0 +1,12 @@
+<h1>Anime Index</h1>
+
+<% @animes.each do |a| %>
+  <p>
+    <%= a.name %>
+    <form action="/animes/<%= a.id %>" method="post">
+      <input type="hidden" name="_method" value="delete" />
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>"/>
+      <input type="submit" name="delete" value="delete" />
+    </form>
+  </p>
+<%end%>
