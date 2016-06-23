@@ -1,0 +1,12 @@
+<div class="container">
+  <h1 class="eight columns">Edit User</h1>
+  <form class="eight columns" action="/users/<%=@user.id%>" method="post">
+    <strong>Name</strong> <input class="u-full-width" type="text" name="name" value="<%=@user.name%>"  />
+    <strong>Email</strong> <input class="u-full-width" type="text" name="email" value="<%=@user.email%>" />
+    <input type="password" name="password" placeholder="Password" />
+    <input type="password" name="password_confirmation" placeholder="Password Confirmation" />
+    <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+    <input type="hidden" name="_method" value="patch" />
+    <input class="u-full-width button-primary" type="submit" name="update" value="Update" />
+  </form>
+</div>

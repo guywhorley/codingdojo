@@ -1,10 +1,13 @@
 class SessionsController < ApplicationController
 
   def new
+
     if session.key?(:user_id)
       redirect_to "/users/#{session[:user_id]}"
       return
     end
+
+
   end
 
   def create
