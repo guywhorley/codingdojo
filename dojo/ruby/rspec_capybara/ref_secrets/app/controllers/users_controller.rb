@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   before_action :require_login, except: [:new, :create]
-  
+
   def index
     # # :id is passed from session controller in URL, lookup user
     # # and pass into view
@@ -19,7 +19,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(
       name: params[:name],
-      email: params[:email],
+      first_name: params[:first_name],
+      last_name: params[:last_name],
       password: params[:password],
       password_confirmation: params[:password_confirmation]
     )
@@ -29,6 +30,7 @@ class UsersController < ApplicationController
       redirect_to "/users/#{@user.id}"
       return
     end
+    puts @user.errors.full_messages
     flash[:error] = "Uh oh. Change values and try again!" #@user.errors.full_messages
     redirect_to '/users/new'
   end
