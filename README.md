@@ -2,7 +2,7 @@
 
 ## Description
 
-This repository is meant as a convenient way to source control my CodingDojo projects: ruby, python, html, css, and others.
+This repository is meant as a convenient way to add source control to my CodingDojo projects: ruby, python, html, css, and others.
 
 Ignore the ugly, deeply-nested folder (granted, the structure is not conducive to forking). Any projects requiring collaboration are hosted in their own repositories at the top level of my Github.
 
