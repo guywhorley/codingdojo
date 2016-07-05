@@ -1,0 +1,12 @@
+// Place all the styles related to the Cats controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.cats {
+  height: 300px;
+  widht: 300px;
+  border: 1px solid black;
+  margin: 10px;
+  box-shadow: 3px 3px 3px black;
+  padding: 20px;
+  border-radius: 10px; 
+}

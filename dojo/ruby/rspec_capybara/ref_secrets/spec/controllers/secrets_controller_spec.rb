@@ -9,9 +9,21 @@ RSpec.describe SecretsController, type: :controller do
   end
 
   describe "GET #index" do
-    it "returns http success" do
+    it "returns http redirect" do
       get :index
-      expect(response).to have_http_status(:success)
+      expect(response).to have_http_status(302) # :success)
+    end
+  end
+
+  describe "when logged in as the wrong user" do
+    before do
+      @wrong_user = create_user "james", "james@bond.com"
+      session[:user_id] = @wrong_user.id
+      @secret = @user.secrets.create(content: 'Ooops')
+    end
+    it "cannot access destroy" do
+      delete :destroy, id: @secret, user_id: @user
+      expect(response).to redirect_to("/users/#{@wrong_user.id}")
     end
   end
 
@@ -33,9 +45,7 @@ RSpec.describe SecretsController, type: :controller do
 
     it "cannot access destroy" do
       get :destroy, id: @secret
-      expect(response).to redirect_to('/session/new')
+      expect(response).to redirect_to('/sessions/new')
     end
-
   end
-
 end

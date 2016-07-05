@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
 
+  # hooks --- run these methods before listed action
   before_action :require_login, except: [:new, :create]
+  before_action :require_correct_user, only: [:show, :edit, :update, :destroy]
 
   def index
     # # :id is passed from session controller in URL, lookup user
@@ -19,8 +21,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(
       name: params[:name],
-      first_name: params[:first_name],
-      last_name: params[:last_name],
+      email: params[:email],
       password: params[:password],
       password_confirmation: params[:password_confirmation]
     )

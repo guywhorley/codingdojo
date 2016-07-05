@@ -1,0 +1,67 @@
+1.CREATE RAILS PROJECT:
+
+rails new user_login_project
+
+2. DEFINE A USER MODEL
+
+<PROJ_ROOT> rails g model User first_name:string last_name:string email_address:string age:integer
+<PROJ_ROOT> rake db:create
+<PROJ_ROOT> rake db:migrate
+
+3. UPDATED GEMFILE TO INCLUDE 'HIRB'
+
+gem 'Hirb'  | save and exit.
+<PROJ_ROOT>bundle install
+
+4. OPEN RAILS CONSOLE AND ENABLE HIRB
+
+Open Ruby Console
+<PROJ_ROOT>rails c OR rails console
+
+enable hirb
+Hirb.enable
+
+5. CREATE USER
+
+u = User.new(first_name:'Jackie', last_name:'Chan')
+u.new_record?  # True if not yet saved
+u.valid?       # True if passes any existing validations
+u.save
+u.new_record?
+
+OR
+
+User.create(first_name:"Moka", last_name:"Whorley", email_address="Moka@dog.com", age:3)
+
+6. SELECT ALL USERS
+
+User.all
+
+7. ADD VALIDATIONS TO MODEL
+
+<PROJ_ROOT>/app/models/user.rb
+added validations and saved.
+
+IRB: reload! [enter]
+
+8. REVIEW ERROR MESSAGES
+
+u1.errors
+u1.errors.full_messages
+
+9. QUERIES
+
+All Users:  User.all
+First User: User.first
+Last User:  User.last
+
+
+10. Update and Destroy Records
+
+User.find(3).update(last_name:'SomethingElse') OR
+uu
+u = User.find(3)
+u.last_name='SomethingElse"
+u.save
+
+User.find(1).destroy

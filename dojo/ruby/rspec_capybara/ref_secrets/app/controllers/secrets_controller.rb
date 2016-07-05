@@ -22,9 +22,10 @@ class SecretsController < ApplicationController
   end
 
   def destroy
-    Secret.find(params[:id]).delete
-    redirect_to "/users/#{session[:user_id]}"
-    # redirect_to "/secrets"
+    secret = Secret.find(params[:id])
+    secret.destroy if secret.user == current_user
+    redirect_to "/users/#{current_user.id}"
+    #redirect_to "/users/#{session[:user_id]}"
   end
 
 end

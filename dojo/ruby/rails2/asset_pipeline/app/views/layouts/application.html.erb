@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AssetPipeline</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<%= image_tag('common-toxicities-cats.png', class: 'cats') %>
+<%= image_tag('grumpy.jpg', class: 'cats') %>
+<%= image_tag('images.jpg', class: 'cats') %>
+<%= yield %>
+
+</body>
+</html>

@@ -1,6 +1,6 @@
 
 # CREATE USER AT THE MODEL LEVEL
-def create_user name='brain', email='mouse@worldconquest.com', password='password', password_confirmation="password"
+def create_user name='brain', email='mouse@worldconquest.com', password='password1', password_confirmation="password1"
     User.create(
       name: name,
       email: email,
@@ -10,8 +10,9 @@ def create_user name='brain', email='mouse@worldconquest.com', password='passwor
 end
 
 # LOGIN
-def log_in user, password='password'
-  visit '/sessions/new'
+def log_in user, password='password1'
+  # visit '/sessions/new'
+  visit "/"
   fill_in 'Email', with: user.email
   fill_in 'Password', with: password
   click_button 'Submit'

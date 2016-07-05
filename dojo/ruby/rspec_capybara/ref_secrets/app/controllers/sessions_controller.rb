@@ -26,7 +26,7 @@ class SessionsController < ApplicationController
       return
     end
     flash[:error] = "Ruh Roh! Try again."
-    redirect_to "/sessions"
+    redirect_to root_path #{ }"/sessions/new"
   end
 
   # Logout User by removing :user_id from Session
